@@ -7,6 +7,7 @@ The conventional system of electricity billing is not so effective; one staff ha
 A new software system to modernize the electricity billing procedure is required. This billing system would replace the traditional and analog type od electricity billing system ensuring security, ease, and comfort billing.
 
 ##Design
+
 • [User Story](UserStories.md)
 
 • [screen Design](ScreenDesign.md)
