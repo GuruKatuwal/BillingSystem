@@ -3,7 +3,7 @@
 ### Presentation Description/Overview
 Problem statement:
 
-The conventional system of electricity billing is not so effective; one staff has to visit each customer’s house to note the meter readings and collect the data. Then, another staff has to compute the consumed units and calculate the money to be delivered to customers. Finally, customer has to go to electricity office to pay their bills.
+The conventional system of electricity billing is not so effective; Mostly in underdevelop country, one staff has to visit each customer’s house to note the meter readings and collect the data. Then, another staff has to compute the consumed units and calculate the money to be delivered to customers. Finally, customer has to go to electricity office to pay their bills.
 A new software system to modernize the electricity billing procedure is required. This billing system would replace the traditional and analog type od electricity billing system ensuring security, ease, and comfort billing.
 
 
@@ -12,7 +12,7 @@ A new software system to modernize the electricity billing procedure is required
 
 • [User Story](UserStories.md)
 
-• [screen Design](ScreenDesign.md)
+• [screen Design](https://a3s18l.axshare.com)
 
 •	Database Design
 
