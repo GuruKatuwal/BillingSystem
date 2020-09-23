@@ -25,3 +25,9 @@ As a user I want to find out more information about this site so that I can make
 
 ##Add details
 As a registered user, I want to be able to add a my customer details.
+
+## Remove User
+As a administrator, I want to remove users.
+
+## Add User
+As a administrator, I want to add Users.

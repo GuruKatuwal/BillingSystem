@@ -1,8 +1,9 @@
 <%@include file="taglib.jsp"%>
-<c:set var="title" value="Search Results"/>
+<%--<c:set var="title" value="Search Results"/>--%>
 <%@include file="Head.jsp"%>
-<body>
 <%@include file="maintitle.jsp"%>
+<body>
+
 <!--end header -->
 <!-- main -->
 <div id="main">
@@ -19,7 +20,8 @@
 <%--    <h1>Welcome</h1>--%>
 <%--    <h2></h2>--%>
 
-    <h2> Welcome to my billing system project</h2>
+    <h1> Welcome to my billing system project!!!!</h1>
+    <h2>Comming soon...............</h2>
 
 
 </div><!-- end main -->

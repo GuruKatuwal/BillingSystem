@@ -1,5 +1,5 @@
 <div id="container">
-    <!-- header -->
+    <div id="logo"><a href="#"></a></div>
     <div id="header">
         <div class="navbar">
             <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>

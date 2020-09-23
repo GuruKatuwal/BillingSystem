@@ -9,7 +9,7 @@ import java.time.temporal.ChronoUnit;
 /**
  * A class to represent a user.
  *
- * @author pwaite
+ * @author gkatuwal
  */
 public class User {
     private String firstName;
