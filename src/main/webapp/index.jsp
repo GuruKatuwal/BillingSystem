@@ -1,7 +1,5 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@include file="taglib.jsp"%>
+<c:set var="title" value="Search Results"/>
 <%@include file="Head.jsp"%>
 <body>
 <%@include file="maintitle.jsp"%>
@@ -9,23 +7,23 @@
 <!-- main -->
 <div id="main">
 
-    <div id="sidebar">
-        <h3>Unit 2</h3>
-        <%@include file="unittwosidebar.jsp"%>
-        <h3>Unit 3</h3>
-        <%@include file="unitthreesidebar.jsp"%>
-        <h3>Unit 4</h3>
-        <%@include file="unitfoursidebar.jsp"%>
-    </div>
+<%--    <div id="sidebar">--%>
+<%--        <h3>Unit 2</h3>--%>
+<%--&lt;%&ndash;        <%@include file="unittwosidebar.jsp"%>&ndash;%&gt;--%>
+<%--&lt;%&ndash;        <h3>Unit 3</h3>&ndash;%&gt;--%>
+<%--&lt;%&ndash;        <%@include file="unitthreesidebar.jsp"%>&ndash;%&gt;--%>
+<%--&lt;%&ndash;        <h3>Unit 4</h3>&ndash;%&gt;--%>
+<%--&lt;%&ndash;        <%@include file="unitfoursidebar.jsp"%>&ndash;%&gt;--%>
+<%--    </div>--%>
 
-    <h1>Welcome</h1>
-    <h2></h2>
+<%--    <h1>Welcome</h1>--%>
+<%--    <h2></h2>--%>
 
-    <h2></h2>
+    <h2> Welcome to my billing system project</h2>
 
 
 </div><!-- end main -->
 <!-- footer -->
-<%@include file="footer.jsp"%>
+<%--<%@include file="footer.jsp"%>--%>
 </body>
 </html>

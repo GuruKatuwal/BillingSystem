@@ -1,18 +1,13 @@
 <div id="container">
     <!-- header -->
     <div id="header">
-
-        <div id="slogan">Madison Electricity</div>
-
-        <div id="logo"><a href="#">Advanced Java</a></div>
+        <div class="navbar">
+            <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+            <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
+            <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+            <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+        </div>
 
     </div>
 
-    <div id="menu">
-        <ul>
-
-            <li><a href="/java112">Home</a></li>
-            <li><a href="/java112">java112</a></li>
-            <li><a href="github.com/MadJavaAdvSpring2019/projects-GuruKatuwal">GitHub</a></li>
-        </ul>
-    </div>
+</div>
