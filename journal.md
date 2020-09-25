@@ -27,3 +27,14 @@ week 2
 
 
 I kind of designed how my website looks like.Started working on JSp file so that I would have better Idea, hows my design going.
+
+week 3
+
+1.Created simple index file that up and running
+
+2. Set up properties files(Hibernate,database and log4j2)
+
+3. Made nice project format for main and for test.
+
+I am planning to add database and user table this week so that I can test CRUD. I have added admin login in my user story so 
+that is I think takes lot of time.
