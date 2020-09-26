@@ -1,5 +1,7 @@
-###Journal
+###  Journal
+
 Week 1
+
 Task Completed:9/13/2020
 
 •[Time Log](timelog.md)
