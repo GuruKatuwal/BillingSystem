@@ -11,10 +11,10 @@ A new software system to modernize the electricity billing procedure is required
 
     * Admin Role
                 
-         Create/Read/Update/Delete Data
+         * Create/Read/Update/Delete Data
     *  User Role   
             
-         Create/Add/Updata Data they have entered previously
+         * Create/Add/Updata Data they have entered previously
  * Database
  
     * MySQL
@@ -35,9 +35,9 @@ A new software system to modernize the electricity billing procedure is required
 
     * Bootstrap
     
- *Data Validation
+ * Data Validation
  
-    * Bootstrap validation
+    *  Bootstrap validation
 
     * Explore Hibernate's validation 
     
