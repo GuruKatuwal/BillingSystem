@@ -1,6 +1,6 @@
 package BillingSystem.persistence;
 
-import BillingSystem.entity.Employee;
+import BillingSystem.entity.Admin;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
@@ -12,54 +12,54 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-public class EmployeeDao {
+public class AdminDao {
     private final Logger logger = LogManager.getLogger(this.getClass());
     SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
 
     /**
-     * Get Employee by id
+     * Get AdminDao by id
      */
-    public Employee getById(int id) {
+    public BillingSystem.entity.Admin getById(int id) {
         Session session = sessionFactory.openSession();
-        Employee Employee = session.get( Employee.class, id );
+        BillingSystem.entity.Admin Admin = session.get( BillingSystem.entity.Admin.class, id );
         session.close();
-        return Employee;
+        return Admin;
     }
 
     /**
-     * update Employee
-     * @param Employee  Employee to be inserted or updated
+     * update AdminDao
+     * @param Admin  AdminDao to be inserted or updated
      */
-    public void saveOrUpdate(Employee Employee) {
+    public void saveOrUpdate(BillingSystem.entity.Admin Admin) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.saveOrUpdate(Employee);
+        session.saveOrUpdate(Admin);
         transaction.commit();
         session.close();
     }
 
     /**
-     * insert Employee
-     * @param Employee  Employee to be inserted
+     * insert AdminDao
+     * @param Admin  AdminDao to be inserted
      */
-    public int insert(Employee Employee) {
+    public int insert(BillingSystem.entity.Admin Admin) {
         int id = 0;
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        id = (int)session.save(Employee);
+        id = (int)session.save(Admin);
         transaction.commit();
         session.close();
         return id;
     }
 
     /**
-     * Delete a Employee
-     * @param Employee Employee to be deleted
+     * Delete a AdminDao
+     * @param Admin AdminDao to be deleted
      */
-    public void delete(Employee Employee) {
+    public void delete(BillingSystem.entity.Admin Admin) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(Employee);
+        session.delete(Admin);
         transaction.commit();
         session.close();
     }
@@ -69,19 +69,19 @@ public class EmployeeDao {
      *
      * @return All Employees
      */
-    public List<Employee> getAll() {
+    public List<BillingSystem.entity.Admin> getAll() {
 
         Session session = sessionFactory.openSession();
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<Employee> query = builder.createQuery( Employee.class );
-        Root<Employee> root = query.from( Employee.class );
-        List<Employee> Employees = session.createQuery( query ).getResultList();
+        CriteriaQuery<BillingSystem.entity.Admin> query = builder.createQuery( BillingSystem.entity.Admin.class );
+        Root<BillingSystem.entity.Admin> root = query.from( BillingSystem.entity.Admin.class );
+        List<BillingSystem.entity.Admin> admins = session.createQuery( query ).getResultList();
 
-        logger.debug("The list of Employees " + Employees);
+        logger.debug("The list of admins " + admins);
         session.close();
 
-        return Employees;
+        return admins;
     }
 
 }

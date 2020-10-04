@@ -1,9 +1,14 @@
 package BillingSystem.entity;
 
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.Period;
+import java.util.HashSet;
+import java.util.Set;
 
 
 /**
@@ -11,16 +16,27 @@ import java.time.Period;
  *
  * @author gkatuwal
  */
+@Entity(name = "Customer")
+@Table(name = "customer")
 public class Customer {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO,generator = "native")
+    @GenericGenerator(name="native", strategy = "native")
     private int id;
-    private String firstName;
-    private String lastName;
-    private String userName;
-    private  String password;
-    private String  email;
-    private String  address;
-    private String phone;
+    @Column(name = "cust_id")
+    private String customerName;
+    @Column(name = "cust_address")
+    private String address;
+    @Column(name = "cust_city")
+    private String city;
+    @Column(name = "cust_state")
+    private  String state;
+    @Column(name = "cust_login")
+    private String  login;
+    @Column(name = "cust_password")
+    private String password;
+  @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL,orphanRemoval = true,fetch = FetchType.EAGER)
+    private Set<Billing> billingSet = new HashSet<>();
 
     /**
      * Gets id.
@@ -41,93 +57,21 @@ public class Customer {
     }
 
     /**
-     * Gets first name.
+     * Gets customer name.
      *
-     * @return the first name
+     * @return the customer name
      */
-    public String getFirstName() {
-        return firstName;
+    public String getCustomerName() {
+        return customerName;
     }
 
     /**
-     * Sets first name.
+     * Sets customer name.
      *
-     * @param firstName the first name
+     * @param customerName the customer name
      */
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    /**
-     * Gets last name.
-     *
-     * @return the last name
-     */
-    public String getLastName() {
-        return lastName;
-    }
-
-    /**
-     * Sets last name.
-     *
-     * @param lastName the last name
-     */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    /**
-     * Gets user name.
-     *
-     * @return the user name
-     */
-    public String getUserName() {
-        return userName;
-    }
-
-    /**
-     * Sets user name.
-     *
-     * @param userName the user name
-     */
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    /**
-     * Gets password.
-     *
-     * @return the password
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * Sets password.
-     *
-     * @param password the password
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    /**
-     * Gets email.
-     *
-     * @return the email
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * Sets email.
-     *
-     * @param email the email
-     */
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     /**
@@ -149,23 +93,84 @@ public class Customer {
     }
 
     /**
-     * Gets phone.
+     * Gets city.
      *
-     * @return the phone
+     * @return the city
      */
-    public String getPhone() {
-        return phone;
+    public String getCity() {
+        return city;
     }
 
     /**
-     * Sets phone.
+     * Sets city.
      *
-     * @param phone the phone
+     * @param city the city
      */
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setCity(String city) {
+        this.city = city;
     }
 
+    /**
+     * Gets state.
+     *
+     * @return the state
+     */
+    public String getState() {
+        return state;
+    }
+
+    /**
+     * Sets state.
+     *
+     * @param state the state
+     */
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    /**
+     * Gets login.
+     *
+     * @return the login
+     */
+    public String getLogin() {
+        return login;
+    }
+
+    /**
+     * Sets login.
+     *
+     * @param login the login
+     */
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    /**
+     * Gets password.
+     *
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * Sets password.
+     *
+     * @param password the password
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Set<Billing> getBillingSet() {
+        return billingSet;
+    }
+
+    public void setBillingSet(Set<Billing> billingSet) {
+        this.billingSet = billingSet;
+    }
 
     /**
      * Instantiates a new Customer.
@@ -176,37 +181,33 @@ public class Customer {
     /**
      * Instantiates a new Customer.
      *
-     * @param id        the id
-     * @param firstName the first name
-     * @param lastName  the last name
-     * @param userName  the user name
-     * @param password  the password
-     * @param email     the email
-     * @param address   the address
-     * @param phone     the phone
+     * @param customerName the customer name
+     * @param address      the address
+     * @param city         the city
+     * @param state        the state
+     * @param login        the login
+     * @param password     the password
      */
-    public Customer(int id, String firstName, String lastName, String userName, String password, String email, String address, String phone) {
+    public Customer(String customerName, String address, String city, String state, String login, String password) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.userName = userName;
-        this.password = password;
-        this.email = email;
+        this.customerName = customerName;
         this.address = address;
-        this.phone = phone;
+        this.city = city;
+        this.state = state;
+        this.login = login;
+        this.password = password;
     }
 
     @Override
     public String toString() {
         return "Customer{" +
                 "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
+                ", customerName='" + customerName + '\'' +
                 ", address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

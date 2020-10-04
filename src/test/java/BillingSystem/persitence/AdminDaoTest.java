@@ -1,4 +1,4 @@
 package BillingSystem.persitence;
 
-public class EmployeeDaoTest {
+public class AdminDaoTest {
 }

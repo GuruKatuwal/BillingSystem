@@ -1,9 +1,9 @@
 package BillingSystem.entity;
 
 /**
- * The type Employee.
+ * The type AdminDao.
  */
-public class Employee {
+public class Admin {
     private int id;
     private String name;
     private String username;
@@ -82,20 +82,20 @@ public class Employee {
     }
 
     /**
-     * Instantiates a new Employee.
+     * Instantiates a new AdminDao.
      */
-    public Employee() {
+    public Admin() {
     }
 
     /**
-     * Instantiates a new Employee.
+     * Instantiates a new AdminDao.
      *
      * @param id       the id
      * @param name     the name
      * @param username the username
      * @param password the password
      */
-    public Employee(int id, String name, String username, String password) {
+    public Admin(int id, String name, String username, String password) {
         this.id = id;
         this.name = name;
         this.username = username;
