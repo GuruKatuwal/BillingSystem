@@ -22,20 +22,18 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO,generator = "native")
     @GenericGenerator(name="native", strategy = "native")
+    @Column(name = "id", insertable=false, updatable=false)
     private int id;
-    @Column(name = "cust_id")
-    private String customerName;
-    @Column(name = "cust_address")
+    @Column(name = "id")
+    private String name;
+    @Column(name = "address")
     private String address;
-    @Column(name = "cust_city")
-    private String city;
-    @Column(name = "cust_state")
-    private  String state;
-    @Column(name = "cust_login")
+
+    @Column(name = "login")
     private String  login;
-    @Column(name = "cust_password")
+    @Column(name = "password")
     private String password;
-  @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL,orphanRemoval = true,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL,orphanRemoval = true,fetch = FetchType.EAGER)
     private Set<Billing> billingSet = new HashSet<>();
 
     /**
@@ -61,17 +59,17 @@ public class Customer {
      *
      * @return the customer name
      */
-    public String getCustomerName() {
-        return customerName;
+    public String getName() {
+        return name;
     }
 
     /**
      * Sets customer name.
      *
-     * @param customerName the customer name
+     * @param name the customer name
      */
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
@@ -92,41 +90,6 @@ public class Customer {
         this.address = address;
     }
 
-    /**
-     * Gets city.
-     *
-     * @return the city
-     */
-    public String getCity() {
-        return city;
-    }
-
-    /**
-     * Sets city.
-     *
-     * @param city the city
-     */
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    /**
-     * Gets state.
-     *
-     * @return the state
-     */
-    public String getState() {
-        return state;
-    }
-
-    /**
-     * Sets state.
-     *
-     * @param state the state
-     */
-    public void setState(String state) {
-        this.state = state;
-    }
 
     /**
      * Gets login.
@@ -181,19 +144,14 @@ public class Customer {
     /**
      * Instantiates a new Customer.
      *
-     * @param customerName the customer name
+     * @param name the customer name
      * @param address      the address
-     * @param city         the city
-     * @param state        the state
      * @param login        the login
      * @param password     the password
      */
-    public Customer(String customerName, String address, String city, String state, String login, String password) {
-        this.id = id;
-        this.customerName = customerName;
+    public Customer( String name, String address, String login, String password) {
+        this.name = name;
         this.address = address;
-        this.city = city;
-        this.state = state;
         this.login = login;
         this.password = password;
     }
@@ -202,10 +160,8 @@ public class Customer {
     public String toString() {
         return "Customer{" +
                 "id=" + id +
-                ", customerName='" + customerName + '\'' +
+                ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 '}';

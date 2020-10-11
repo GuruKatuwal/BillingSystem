@@ -19,8 +19,8 @@ public class Billing {
     private int id;
     @Column(name = "payment_date")
     private Date paymentDate;
-    @Column(name = "cust_name")
-    private String CustomerName;
+    @Column(name = "name")
+    private String name;
     @Column(name = "bill_amount")
     private Float billAmount;
     @Column(name = "paid_amount")
@@ -92,7 +92,7 @@ public class Billing {
      * @return the cutomer name
      */
     public String getCutomerName() {
-        return CustomerName;
+        return name;
     }
 
     /**
@@ -101,7 +101,7 @@ public class Billing {
      * @param customerName the customer name
      */
     public void setCutomerName(String customerName) {
-        CustomerName = customerName;
+        this.name = name;
     }
 
     /**

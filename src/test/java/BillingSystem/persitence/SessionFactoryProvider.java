@@ -1,4 +1,5 @@
-package BillingSystem.persistence;
+package BillingSystem.persitence;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
