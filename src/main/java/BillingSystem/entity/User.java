@@ -32,11 +32,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO,generator = "native")
     @GenericGenerator(name="native", strategy = "native")
     private int id;
-
-
-
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Role> roles = new HashSet<>();
 
     /**
      * Instantiates a new User.
@@ -59,6 +58,24 @@ public class User {
         this.userName = userName;
         this.password = password;
         this.dateOfBirth = dateOfBirth;
+    }
+
+    /**
+     * Gets roles.
+     *
+     * @return the roles
+     */
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    /**
+     * Sets roles.
+     *
+     * @param roles the roles
+     */
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     /**

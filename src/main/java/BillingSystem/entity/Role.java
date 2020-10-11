@@ -13,14 +13,14 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    @Column(name = "id")
+    @Column(name = "id", insertable = false, updatable = false)
     private int id;
     @Column(name = "user_name")
     private String userName;
 
     @Column(name="role_name")
     private String role;
-//    @ManyToOne
+    @ManyToOne
 //    @JoinColumn(name = "user_id",
 //            foreignKey = @ForeignKey(name = "role_user_user_id_fk")
 //    )
@@ -96,10 +96,10 @@ public class Role {
         this.user = user;
     }
 
-    public Role(String userName, String role, User user) {
+    public Role(String userName, String role) {
         this.userName = userName;
         this.role = role;
-        this.user = user;
+
     }
 
     @Override

@@ -13,31 +13,28 @@
     <table id="userTable" class="display" cellspacing="0" width="100%">
         <thead>
         <th>Name</th>
-        <th>User</th>
+        <th>User Name</th>
         <th>Age</th>
-        <th>Orders</th>
+        <th>Role</th>
         </thead>
         <tbody>
         <c:forEach var="user" items="${users}">
             <tr>
-                <td> ${user.firstName} ${user.lastName}</td>
-                <td>${user.userName} </td>
+                <td>${user.firstName} ${user.lastName}</td>
+                <td>${user.userName}</td>
                 <td>${user.age}</td>
-                <td>
-            <c:forEach var="order" items="${user.orders}">
-                ${order.id} ${order.role}</br>
-            </c:forEach>
-                </td>
             </tr>
+            <td>
+                <c:forEach var="role" items="${user.roles}">
+                  ${role.role}<br/>
+                </c:forEach>
+            </td>
         </c:forEach>
         </tbody>
     </table>
 </div>
 
-<div id="main">
-
-
-</div>
+</body>
 
 </body>
 </html>

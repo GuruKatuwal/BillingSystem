@@ -21,8 +21,8 @@ public class UserDaoTest {
     @BeforeEach
     void SetUp(){
         dao = new UserDao();
-//        Database database = Database.getInstance();
-//        database.runSQL("dump.sql");
+        Database database = Database.getInstance();
+        database.runSQL("dump.sql");
 
     }
 
@@ -37,7 +37,7 @@ public class UserDaoTest {
     {
 //        User retriedUser = (User)genericDao.getById(1);
         User retriedUser = dao.getById(1);
-        assertEquals("Dale", retriedUser.getFirstName());
+        assertEquals("Joe", retriedUser.getFirstName());
     }
 
 
@@ -63,8 +63,8 @@ public class UserDaoTest {
     }
     @Test
     void deleteSuccess() {
-        dao.delete(dao.getById(17));
-        assertNull(dao.getById(17));
+        dao.delete(dao.getById(6));
+        assertNull(dao.getById(6));
     }
 
 
