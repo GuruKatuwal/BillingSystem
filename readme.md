@@ -63,8 +63,6 @@ A new software system to modernize the electricity billing procedure is required
 
 • [Database Diagram](../images/databaseDiagram.png)
 
-•	Project Plan
-
 •	[Weekly Reflection](journal.md)
 
 

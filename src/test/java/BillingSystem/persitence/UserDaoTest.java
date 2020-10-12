@@ -2,7 +2,6 @@ package BillingSystem.persitence;
 
 import BillingSystem.entity.User;
 import BillingSystem.persistence.GenericDao;
-import BillingSystem.persistence.UserDao;
 import BillingSystem.testUtils.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,12 +14,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UserDaoTest {
-    UserDao dao;
     GenericDao genericDao;
 
     @BeforeEach
     void SetUp(){
-        dao = new UserDao();
+        genericDao = new GenericDao(User.class);
         Database database = Database.getInstance();
         database.runSQL("dump.sql");
 
@@ -28,15 +26,14 @@ public class UserDaoTest {
 
     @Test
     void getAllSuccess() {
-        List<User> User = dao.getAll();
+        List<User> User = genericDao.getAll();
         assertEquals(6, User.size());
     }
 
     @Test
     void getByIdSuccess()
     {
-//        User retriedUser = (User)genericDao.getById(1);
-        User retriedUser = dao.getById(1);
+        User retriedUser = (User)genericDao.getById(1);
         assertEquals("Joe", retriedUser.getFirstName());
     }
 
@@ -45,9 +42,9 @@ public class UserDaoTest {
     void insertSuccessUser() {
 
         User newUser = new User("Salman","Khan","salman","khan", LocalDate.parse("1163-01-01"));
-        int id = dao.insert(newUser);
+        int id = genericDao.insert(newUser);
         assertNotEquals(0,id);
-        User insertedUser = dao.getById(id);
+        User insertedUser = (User)genericDao.getById(id);
         assertNotNull(insertedUser);
         assertEquals("Salman", insertedUser.getFirstName());
         assertEquals("salman",insertedUser.getUserName());
@@ -55,16 +52,16 @@ public class UserDaoTest {
     @Test
     void updateSuccess() {
         String newFirstName = "Dale";
-        User UserToUpdate = dao.getById(1);
+        User UserToUpdate = (User) genericDao.getById(1);
         UserToUpdate.setFirstName(newFirstName);
-        dao.saveOrUpdate(UserToUpdate);
-        User UserAfterUpdate = dao.getById(1);
+        genericDao.saveOrUpdate(UserToUpdate);
+        User UserAfterUpdate = (User)genericDao.getById(1);
         assertEquals(newFirstName, UserAfterUpdate.getFirstName());
     }
     @Test
     void deleteSuccess() {
-        dao.delete(dao.getById(6));
-        assertNull(dao.getById(6));
+        genericDao.delete(genericDao.getById(6));
+        assertNull(genericDao.getById(6));
     }
 
 

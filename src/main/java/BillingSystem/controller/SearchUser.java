@@ -1,6 +1,8 @@
 package BillingSystem.controller;
 
-import BillingSystem.persistence.UserDao;
+import BillingSystem.entity.User;
+import BillingSystem.persistence.GenericDao;
+//import BillingSystem.persistence.UserDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,11 +25,11 @@ public class SearchUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        UserDao userDao = new UserDao();
+        GenericDao genericDao = new GenericDao(User.class);
         if (req.getParameter("submit").equals("search")){
-            req.setAttribute("users", userDao.getUsersByLastName(req.getParameter("searchTerm")));
+            req.setAttribute("users", genericDao.getByPropertyEqual("lastName",req.getParameter("searchTerm")));
         } else {
-            req.setAttribute("users", userDao.getAll());
+            req.setAttribute("users", genericDao.getAll());
         }
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/results.jsp");
