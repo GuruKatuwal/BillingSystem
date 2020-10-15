@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="BookSeller@localhost">
+<dataSource name="BillingSystem@localhost">
   <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.15">
     <root id="1">
       <ServerVersion>8.0.16</ServerVersion>
@@ -11,11 +11,11 @@
       <Collation>utf8mb4_0900_ai_ci</Collation>
     </schema>
     <schema id="3" parent="1" name="BillingSystem">
+      <Current>1</Current>
+      <Visible>1</Visible>
       <Collation>utf8mb4_0900_ai_ci</Collation>
     </schema>
     <schema id="4" parent="1" name="BookSeller">
-      <Current>1</Current>
-      <Visible>1</Visible>
       <Collation>utf8mb4_0900_ai_ci</Collation>
     </schema>
     <schema id="5" parent="1" name="information_schema">
@@ -1117,202 +1117,267 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="281" parent="4" name="author">
-      <Collation>latin1_swedish_ci</Collation>
-    </table>
-    <table id="282" parent="4" name="books">
-      <Collation>latin1_swedish_ci</Collation>
-    </table>
-    <table id="283" parent="4" name="role"/>
-    <table id="284" parent="4" name="user"/>
-    <column id="285" parent="281" name="id">
+    <table id="281" parent="3" name="account"/>
+    <table id="282" parent="3" name="admin"/>
+    <table id="283" parent="3" name="billing"/>
+    <table id="284" parent="3" name="customer"/>
+    <table id="285" parent="3" name="role"/>
+    <table id="286" parent="3" name="user"/>
+    <column id="287" parent="281" name="acc_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="281" name="first_name">
+    <column id="288" parent="281" name="cust_id">
       <Position>2</Position>
-      <DataType>varchar(25)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="281" name="last_name">
+    <column id="289" parent="281" name="acc_name">
       <Position>3</Position>
       <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="288" parent="281" name="author_id_uindex">
-      <ColNames>id</ColNames>
+    <column id="290" parent="281" name="acc_address">
+      <Position>4</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="291" parent="281" name="rr_number">
+      <Position>5</Position>
+      <DataType>varchar(25)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="292" parent="281" name="account_acc_id_uindex">
+      <ColNames>acc_id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="289" parent="281" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
+    <key id="293" parent="281" name="account_acc_id_uindex">
+      <ColNames>acc_id</ColNames>
+      <UnderlyingIndexName>account_acc_id_uindex</UnderlyingIndexName>
     </key>
-    <key id="290" parent="281" name="author_id_uindex">
-      <ColNames>id</ColNames>
-      <UnderlyingIndexName>author_id_uindex</UnderlyingIndexName>
-    </key>
-    <column id="291" parent="282" name="id">
+    <column id="294" parent="282" name="admin_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="282" name="title">
+    <column id="295" parent="282" name="admin_name">
       <Position>2</Position>
-      <DataType>varchar(70)|0s</DataType>
+      <DataType>varchar(25)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="282" name="author_id">
+    <column id="296" parent="282" name="admin_login">
       <Position>3</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>varchar(25)|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="282" name="isbn">
+    <column id="297" parent="282" name="admin_pasword">
       <Position>4</Position>
       <DataType>varchar(25)|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="282" name="publication_year">
-      <Position>5</Position>
-      <DataType>int(11)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="296" parent="282" name="book_id_uindex">
-      <ColNames>id</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <index id="297" parent="282" name="book_isbn_uindex">
-      <ColNames>isbn</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <index id="298" parent="282" name="book_author_id_fk">
-      <ColNames>author_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="299" parent="282" name="PRIMARY">
+    <key id="298" parent="282" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
+      <ColNames>admin_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="300" parent="282" name="book_id_uindex">
-      <ColNames>id</ColNames>
-      <UnderlyingIndexName>book_id_uindex</UnderlyingIndexName>
+    <column id="299" parent="283" name="bill_id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="300" parent="283" name="cust_id">
+      <Position>2</Position>
+      <DataType>varchar(25)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="301" parent="283" name="acc_id">
+      <Position>3</Position>
+      <DataType>varchar(25)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="302" parent="283" name="payment_date">
+      <Position>4</Position>
+      <DataType>date|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="303" parent="283" name="cust_name">
+      <Position>5</Position>
+      <DataType>varchar(25)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="304" parent="283" name="bill_amount">
+      <Position>6</Position>
+      <DataType>float|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="305" parent="283" name="paid_amount">
+      <Position>7</Position>
+      <DataType>float(10,2 digit)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="306" parent="283" name="billing_bill_id_uindex">
+      <ColNames>bill_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="307" parent="283" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>bill_id</ColNames>
+      <Primary>1</Primary>
     </key>
-    <key id="301" parent="282" name="book_isbn_uindex">
-      <ColNames>isbn</ColNames>
-      <UnderlyingIndexName>book_isbn_uindex</UnderlyingIndexName>
+    <key id="308" parent="283" name="billing_bill_id_uindex">
+      <ColNames>bill_id</ColNames>
+      <UnderlyingIndexName>billing_bill_id_uindex</UnderlyingIndexName>
     </key>
-    <foreign-key id="302" parent="282" name="book_author_id_fk">
-      <ColNames>author_id</ColNames>
-      <RefSchemaName>BookSeller</RefSchemaName>
-      <RefTableName>author</RefTableName>
+    <foreign-key id="309" parent="283" name="billing_account_acc_id_fk">
+      <ColNames>bill_id</ColNames>
+      <RefSchemaName>BillingSystem</RefSchemaName>
+      <RefTableName>account</RefTableName>
+      <RefColNames>acc_id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="310" parent="283" name="billing_customer_cust_id_fk">
+      <ColNames>bill_id</ColNames>
+      <RefSchemaName>BillingSystem</RefSchemaName>
+      <RefTableName>customer</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="303" parent="283" name="id">
+    <column id="311" parent="284" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="304" parent="283" name="role_name">
+    <column id="312" parent="284" name="name">
+      <Position>2</Position>
+      <DataType>varchar(25)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="313" parent="284" name="address">
+      <Position>3</Position>
+      <DataType>varchar(25)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="314" parent="284" name="login">
+      <Position>4</Position>
+      <DataType>varchar(25)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="315" parent="284" name="password">
+      <Position>5</Position>
+      <DataType>varchar(25)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="316" parent="284" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="317" parent="285" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="318" parent="285" name="user_name">
       <Position>2</Position>
       <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="305" parent="283" name="user_name">
+    <column id="319" parent="285" name="role_name">
       <Position>3</Position>
-      <DataType>varchar(15)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>varchar(25)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="306" parent="283" name="user_id">
-      <Position>4</Position>
-      <DataType>int(11)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="307" parent="283" name="role_id_uindex">
+    <index id="320" parent="285" name="role_role_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="308" parent="283" name="role_user_user_id_fk">
-      <ColNames>user_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="309" parent="283" name="PRIMARY">
+    <key id="321" parent="285" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="310" parent="283" name="role_id_uindex">
+    <key id="322" parent="285" name="role_role_id_uindex">
       <ColNames>id</ColNames>
-      <UnderlyingIndexName>role_id_uindex</UnderlyingIndexName>
+      <UnderlyingIndexName>role_role_id_uindex</UnderlyingIndexName>
     </key>
-    <foreign-key id="311" parent="283" name="role_user_user_id_fk">
-      <ColNames>user_id</ColNames>
-      <RefSchemaName>BookSeller</RefSchemaName>
+    <foreign-key id="323" parent="285" name="role_user_id_fk">
+      <ColNames>id</ColNames>
+      <RefSchemaName>BillingSystem</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="312" parent="284" name="id">
+    <column id="324" parent="286" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="313" parent="284" name="first_name">
+    <column id="325" parent="286" name="first_name">
       <Position>2</Position>
       <DataType>varchar(25)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="314" parent="284" name="last_name">
+    <column id="326" parent="286" name="last_name">
       <Position>3</Position>
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="315" parent="284" name="user_name">
+    <column id="327" parent="286" name="user_name">
       <Position>4</Position>
       <DataType>varchar(15)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="316" parent="284" name="password">
+    <column id="328" parent="286" name="password">
       <Position>5</Position>
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="317" parent="284" name="date_of_birth">
+    <column id="329" parent="286" name="date_of_birth">
       <Position>6</Position>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="318" parent="284" name="users_user_name_uindex">
+    <index id="330" parent="286" name="users_user_name_uindex">
       <ColNames>user_name</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="319" parent="284" name="PRIMARY">
+    <key id="331" parent="286" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="320" parent="284" name="users_user_name_uindex">
+    <key id="332" parent="286" name="users_user_name_uindex">
       <ColNames>user_name</ColNames>
       <UnderlyingIndexName>users_user_name_uindex</UnderlyingIndexName>
     </key>

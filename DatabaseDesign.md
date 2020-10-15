@@ -1,1 +1,1 @@
-![Database design](../databasediagram.png)
+![Database design](/home/student/Billing_System-2020-10-15_11-05.png)

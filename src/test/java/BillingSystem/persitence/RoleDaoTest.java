@@ -79,8 +79,8 @@
 //     */
 //    @Test
 //    void deleteSuccess() {
-//        genericDao.delete(genericDao.getById(3));
-//        assertNull(genericDao.getById(3));
+//        genericDao.delete(genericDao.getById(30));
+//        assertNull(genericDao.getById(30));
 //    }
 //
 //
