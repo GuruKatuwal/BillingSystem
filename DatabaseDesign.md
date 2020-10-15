@@ -1,1 +1,2 @@
-![Database design](/home/student/Billing_System-2020-10-15_11-05.png)
+
+![Database design](ScreenShoot/databaseDiagram.png)
