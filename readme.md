@@ -61,7 +61,7 @@ A new software system to modernize the electricity billing procedure is required
 
 • [Application Flow](https://xzekh4.axshare.com)
 
-• [Database Diagram](../images/databaseDiagram.png)
+• [Database Diagram](DatabaseDesign.md)
 
 • [Weekly Reflection](journal.md)
 
