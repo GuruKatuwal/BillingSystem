@@ -1,6 +1,9 @@
 package BillingSystem.persistence;
 
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,16 +11,14 @@ import java.sql.SQLException;
 import java.util.Properties;
 /**
  * Provides access the database
- * Created on 8/31/16.
- *
- * @author pwaite
+
  */
 
 public class Database {
 
     // create an object of the class Database
     private static Database instance = new Database();
-
+    Logger logger = LogManager.getLogger(this.getClass());
     private Properties properties;
 
     private Connection connection;
@@ -33,11 +34,9 @@ public class Database {
         try {
             properties.load (this.getClass().getResourceAsStream("/database.properties"));
         } catch (IOException ioe) {
-            System.out.println("Database.loadProperties()...Cannot load the properties file");
-            ioe.printStackTrace();
+            logger.error("Database.loadProperties()...Cannot load the properties file");
         } catch (Exception e) {
-            System.out.println("Database.loadProperties()..." + e);
-            e.printStackTrace();
+            logger.error("Database.loadProperties()..." + e);
         }
 
     }
@@ -70,7 +69,7 @@ public class Database {
             try {
                 connection.close();
             } catch (SQLException e) {
-                System.out.println("Cannot close connection" + e);
+                logger.error("Cannot close connection" + e);
             }
         }
 
