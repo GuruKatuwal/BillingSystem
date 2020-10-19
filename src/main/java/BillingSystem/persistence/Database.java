@@ -19,6 +19,7 @@ public class Database {
     // create an object of the class Database
     private static Database instance = new Database();
     Logger logger = LogManager.getLogger(this.getClass());
+
     private Properties properties;
 
     private Connection connection;

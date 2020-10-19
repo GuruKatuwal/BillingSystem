@@ -20,48 +20,48 @@ public class UserDaoTest {
     void SetUp(){
         genericDao = new GenericDao(User.class);
         Database database = Database.getInstance();
-        database.runSQL("user.sql");
+        database.runSQL("role_test.sql");
 
     }
 
     @Test
     void getAllSuccess() {
         List<User> User = genericDao.getAll();
-        assertEquals(7, User.size());
+        assertEquals(6, User.size());
     }
 
     @Test
     void getByIdSuccess()
     {
         User retriedUser = (User)genericDao.getById(1);
-        assertEquals("Dale", retriedUser.getFirstName());
+        assertEquals("Joe", retriedUser.getUserName());
     }
 
 
     @Test
     void insertSuccessUser() {
 
-        User newUser = new User("Jose","lopez","Jose","jlopez", LocalDate.parse("1163-01-01"));
+            User newUser = new User("Dawn","DTilman","Dawn Tilman","123 Street st","Madison","WI","53711","6086925566","admin","user",LocalDate.parse("1163-01-01"));
         int id = genericDao.insert(newUser);
         assertNotEquals(0,id);
         User insertedUser = (User)genericDao.getById(id);
         assertNotNull(insertedUser);
-        assertEquals("Jose", insertedUser.getFirstName());
+        assertEquals("Jose Lopez", insertedUser.getName());
         assertEquals("Jose",insertedUser.getUserName());
     }
     @Test
     void updateSuccess() {
-        String newFirstName = "Dale";
+        String newName = "JCoyne";
         User UserToUpdate = (User) genericDao.getById(1);
-        UserToUpdate.setFirstName(newFirstName);
+        UserToUpdate.setUserName(newName);
         genericDao.saveOrUpdate(UserToUpdate);
         User UserAfterUpdate = (User)genericDao.getById(1);
-        assertEquals(newFirstName, UserAfterUpdate.getFirstName());
+        assertEquals(newName, UserAfterUpdate.getUserName());
     }
     @Test
     void deleteSuccess() {
-        genericDao.delete(genericDao.getById(13));
-        assertNull(genericDao.getById(13));
+        genericDao.delete(genericDao.getById(7));
+        assertNull(genericDao.getById(7));
     }
 
 
