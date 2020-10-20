@@ -33,6 +33,8 @@ public class Account {
 
     @ManyToOne
     private User user;
+    @ManyToOne
+    private Billing billing;
 
     /**
      * Gets id.
@@ -136,15 +138,13 @@ public class Account {
      * @param name    the name
      * @param address the address
      * @param reg_no  the reg no
-     * @param user    the user
      */
-    public Account(String name, String address, String reg_no, User user) {
+    public Account(String name, String address, String reg_no) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.reg_no = reg_no;
-        this.user = user;
-    }
+     }
 
     @Override
     public String toString() {

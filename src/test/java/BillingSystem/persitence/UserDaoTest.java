@@ -1,5 +1,4 @@
 package BillingSystem.persitence;
-
 import BillingSystem.entity.User;
 import BillingSystem.persistence.GenericDao;
 import BillingSystem.testUtils.Database;
@@ -41,17 +40,17 @@ public class UserDaoTest {
     @Test
     void insertSuccessUser() {
 
-            User newUser = new User("Dawn","DTilman","Dawn Tilman","123 Street st","Madison","WI","53711","6086925566","admin","user",LocalDate.parse("1163-01-01"));
+        User newUser = new User("Dawn","DTilman","Dawn Tilman","123 Street st","Madison","WI","53711","6086925566","admin","user",LocalDate.parse("1163-01-01"));
         int id = genericDao.insert(newUser);
         assertNotEquals(0,id);
         User insertedUser = (User)genericDao.getById(id);
         assertNotNull(insertedUser);
-        assertEquals("Jose Lopez", insertedUser.getName());
-        assertEquals("Jose",insertedUser.getUserName());
+        assertEquals("Dawn Tilman", insertedUser.getName());
+        assertEquals("Dawn",insertedUser.getUserName());
     }
     @Test
     void updateSuccess() {
-        String newName = "JCoyne";
+        String newName = "Joe";
         User UserToUpdate = (User) genericDao.getById(1);
         UserToUpdate.setUserName(newName);
         genericDao.saveOrUpdate(UserToUpdate);
@@ -60,8 +59,8 @@ public class UserDaoTest {
     }
     @Test
     void deleteSuccess() {
-        genericDao.delete(genericDao.getById(7));
-        assertNull(genericDao.getById(7));
+        genericDao.delete(genericDao.getById(17));
+        assertNull(genericDao.getById(17));
     }
 
 
