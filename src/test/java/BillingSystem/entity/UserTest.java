@@ -6,8 +6,14 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * The type User test.
+ */
 class UserTest {
 
+    /**
+     * Gets age.
+     */
     @Test
     void getAge() {
         // create the object that has the method I want to test

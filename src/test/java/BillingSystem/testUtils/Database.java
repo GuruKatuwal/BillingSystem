@@ -20,7 +20,6 @@ import java.util.Properties;
  *
  * @author pwaite
  */
-
 public class Database {
 
     private final Logger logger = LogManager.getLogger(this.getClass());

@@ -1,2 +1,4 @@
-DELETE FROM account;
-INSERT INTO account VALUES (1,'Joe Coyne','123 Street st','1000001'),(2,'Fred Hansen','124 Street st','1000002'),(3,'Barney Curry','125 Street st','1000003'),(4,'Karen Kmack','123 Street st','1000004'),(5,'Dianne Klein','123 Street st','1000005'),(6,'Dawn Tilman','123 Street st','1000005');
+DELETE FROM billing;
+INSERT INTO billing VALUES (1,'2020-10-22','140','40','2020-10-22','100','50','1000001',1),(2,'2020-10-23','150','10','2020-10-23','100','50','1000002',2),(3,'2020-10-24','200','150','2020-10-24','100','50','1000003',3),(4,'2020-10-26','1000','100','2020-10-26','500','10','1000004',4);
+
+

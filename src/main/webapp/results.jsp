@@ -20,15 +20,13 @@
         <tbody>
         <c:forEach var="user" items="${users}">
             <tr>
-                <td>${user.firstName} ${user.lastName}</td>
+                 <td>${user.name}</td>
                 <td>${user.userName}</td>
                 <td>${user.age}</td>
+                <td>${user.role}</td>
+
             </tr>
-            <td>
-                <c:forEach var="role" items="${user.roles}">
-                  ${role.role}<br/>
-                </c:forEach>
-            </td>
+
         </c:forEach>
         </tbody>
     </table>

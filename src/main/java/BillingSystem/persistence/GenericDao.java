@@ -25,6 +25,10 @@ public class GenericDao<T> {
         this.type = type;
     }
 
+    public GenericDao() {
+
+    }
+
     /**
      * Gets a entity by id
      * @param id entity id to search by

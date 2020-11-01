@@ -19,6 +19,7 @@ import java.util.Set;
 @Table(name = "user")
 public class User {
 
+
     @Column(name = "user_name")
     private String userName;
 
@@ -49,19 +50,21 @@ public class User {
     @Column(name = "description")
     private String description;
 
-//    @Column(name = "Account")
-//    private String Account;
+    @Column(name = "date_of_birth")
+    private LocalDate dateOfBirth;
+
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
+    @Column(name = "id")
     private int id;
 
-    @Column(name = "date_of_birth")
-    private LocalDate dateOfBirth;
+
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private Set<Account> Accounts = new HashSet<>();
+    private Set<Billing> billings = new HashSet<>();
 
     /**
      * Gets user name.
@@ -262,23 +265,31 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
+
     /**
-     * Gets Accounts.
+     * Gets zipcode.
      *
-     * @return the Accounts
+     * @return the zipcode
      */
-    public Set<Account> getAccounts() {
-        return Accounts;
+    public String getZipcode() {
+        return zipcode;
     }
 
-
     /**
-     * Sets Accounts.
+     * Sets zipcode.
      *
-     * @param Accounts the Accounts
+     * @param zipcode the zipcode
      */
-    public void setAccounts(Set<Account> Accounts) {
-        this.Accounts = Accounts;
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public Set<Billing> getBillings() {
+        return billings;
+    }
+
+    public void setBillings(Set<Billing> billings) {
+        this.billings = billings;
     }
 
     /**
@@ -292,23 +303,23 @@ public class User {
     }
 
     /**
-     * Add Account.
+     * Add Billing.
      *
-     * @param Account the Account
+     * @param billing the Billing
      */
-    public void addAccount(Account Account) {
-        Accounts.add(Account);
-        Account.setUser(this);
+    public void addBilling(Billing billing) {
+        billings.add(billing);
+        billing.setUser(this);
     }
 
     /**
-     * Remove Account.
+     * Remove Billing.
      *
-     * @param Account the Account
+     * @param billing the Billing
      */
-    public void removeAccount(Account Account) {
-        Accounts.remove(Account);
-        Account.setUser(null);
+    public void removeBilling(Billing billing) {
+        billings.remove(billing);
+        billing.setUser(null);
     }
 
     /**
