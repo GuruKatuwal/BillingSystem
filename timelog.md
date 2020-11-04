@@ -9,4 +9,10 @@ Date | Task | Hours | Notes
 9/30|Added technologies for project | 2.5 hrs
 
 
-10/05| Added Security Authentication, push code in AWS and  Draw database Design | 20hrs
+10/05| Added Security Authentication and  Draw database Design | 20hrs
+
+10/10|Implemented Security Authentication to the project |20
+
+10/20|Added Database and push to aws |20
+
+10/30|Working on the Jsp|20
