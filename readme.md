@@ -69,11 +69,9 @@ A new software system to modernize the electricity billing procedure is required
 
 ### Supporting Materials 
 
-* Link to your presentation.
-* Link to related materials, such as demo code, if appropriate. 
-* Link to references. 
- for the Billing statndard https://www.althosbooks.com/intowibi.html
- for Billing Management https://sourcex.net/solutions/billing-system/
+
+ * for the Billing statndard https://www.althosbooks.com/intowibi.html
+ * for Billing Management https://sourcex.net/solutions/billing-system/
 
 ### Feedback
 
