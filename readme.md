@@ -37,7 +37,7 @@ A new software system to modernize the electricity billing procedure is required
     
  * Data Validation
  
-    *  Bootstrap validation
+    * Bootstrap validation
 
     * Explore Hibernate's validation 
     
@@ -63,7 +63,6 @@ A new software system to modernize the electricity billing procedure is required
 
 • [Database Diagram](DatabaseDesign.md)
 
-• [Weekly Reflection](journal.md)
 
 
 
