@@ -1,30 +1,24 @@
 package BillingSystem.entity;
 
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.Month;
-import java.time.Period;
 import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
 import java.util.Set;
 
+
 /**
  * A class to represent a user.
  *
- * @author pwaite
+ * @author pwaite //
  */
 @Entity(name = "User")
 @Table(name = "user")
 public class User {
-
-
-    @Column(name = "user_name")
-    private String userName;
-
-    @Column(name = "password")
-    private String password;
 
     @Column(name = "name")
     private String name;
@@ -43,9 +37,6 @@ public class User {
 
     @Column(name = "phone")
     private String phone;
-
-    @Column(name = "role")
-    private String role;
 
     @Column(name = "description")
     private String description;
@@ -66,23 +57,11 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Billing> billings = new HashSet<>();
 
-    /**
-     * Gets user name.
-     *
-     * @return the user name
-     */
-    public String getUserName() {
-        return userName;
-    }
 
-    /**
-     * Sets user name.
-     *
-     * @param userName the user name
-     */
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Role> roles = new HashSet<>();
+
+
 
     /**
      * Gets name.
@@ -102,23 +81,7 @@ public class User {
         this.name = name;
     }
 
-    /**
-     * Gets password.
-     *
-     * @return the password
-     */
-    public String getPassword() {
-        return password;
-    }
 
-    /**
-     * Sets password.
-     *
-     * @param password the password
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     /**
      * Gets address.
@@ -211,23 +174,6 @@ public class User {
         this.id = id;
     }
 
-    /**
-     * Gets role.
-     *
-     * @return the role
-     */
-    public String getRole() {
-        return role;
-    }
-
-    /**
-     * Sets role.
-     *
-     * @param role the role
-     */
-    public void setRole(String role) {
-        this.role = role;
-    }
 
     /**
      * Gets description.
@@ -284,12 +230,40 @@ public class User {
         this.zipcode = zipcode;
     }
 
+    /**
+     * Gets billings.
+     *
+     * @return the billings
+     */
     public Set<Billing> getBillings() {
         return billings;
     }
 
+    /**
+     * Sets billings.
+     *
+     * @param billings the billings
+     */
     public void setBillings(Set<Billing> billings) {
         this.billings = billings;
+    }
+
+    /**
+     * Gets roles.
+     *
+     * @return the roles
+     */
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    /**
+     * Sets roles.
+     *
+     * @param roles the roles
+     */
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     /**
@@ -323,6 +297,26 @@ public class User {
     }
 
     /**
+     * Add role.
+     *
+     * @param role the role
+     */
+    public void addRole(Role role) {
+        roles.add(role);
+        role.setUser(this);
+    }
+
+    /**
+     * Remove role.
+     *
+     * @param role the role
+     */
+    public void removeRole(Role role) {
+        roles.add(role);
+        role.setUser(null);
+    }
+
+    /**
      * Instantiates a new User.
      */
     public User() {
@@ -331,48 +325,42 @@ public class User {
     /**
      * Instantiates a new User.
      *
-     * @param userName    the user name
-     * @param password    the password
      * @param name        the name
      * @param address     the address
      * @param city        the city
      * @param state       the state
      * @param zipcode     the zipcode
      * @param phone       the phone
-     * @param role        the role
      * @param description the description
      * @param dateOfBirth the date of birth
      */
-    public User(String userName, String password, String name, String address, String city, String state, String zipcode, String phone, String role, String description, LocalDate dateOfBirth) {
-        this.userName = userName;
-        this.password = password;
+    public User(String name, String address, String city, String state, String zipcode, String phone, String description, LocalDate dateOfBirth) {
         this.name = name;
         this.address = address;
         this.city = city;
         this.state = state;
         this.zipcode = zipcode;
         this.phone = phone;
-        this.role = role;
         this.description = description;
         this.dateOfBirth = dateOfBirth;
     }
 
+
     @Override
     public String toString() {
         return "User{" +
-                "userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", zipcode='" + zipcode + '\'' +
                 ", phone='" + phone + '\'' +
-                ", role='" + role + '\'' +
                 ", description='" + description + '\'' +
                 ", id=" + id +
                 ", dateOfBirth=" + dateOfBirth +
                 ", age=" + getAge() +
                 '}';
     }
+
+
 }

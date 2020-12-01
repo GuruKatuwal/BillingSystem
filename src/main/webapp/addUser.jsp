@@ -8,16 +8,17 @@
 --%>
 
 <html>
+<jsp:include page="/head.jsp" />
 <body role="document">
 <jsp:include page="/navbar.jsp" />
 <div class = "container">
     <form id="addUser" role="form" data-toggle="validator"
           class="form-horizontal"
-          action="addTrail"
+          action="addUser.jsp"
           method="POST">
 
         <div class="form-group">
-            <label class="control-label col-sm-2" for="name">Trail Name</label>
+            <label class="control-label col-sm-2" for="name">User Name</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="name"
                        name="name"
@@ -63,46 +64,6 @@
             </div>
             <div class="help-block with-errors"></div>
         </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="latitude">Latitude</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" id="latitude"
-                       name="latitude"
-                       data-error="Please enter the trailhead latitude.">
-            </div>
-            <div class="help-block with-errors"></div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="longitude">Longitude</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" id="longitude"
-                       name="longitude"
-                       data-error="Please enter the trailhead longitude." >
-            </div>
-            <div class="help-block with-errors"></div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="length">Length
-            </label>
-            <div class="col-sm-2">
-                <input type="text" class="form-control" id="length"
-                       name="length"
-                       data-error="Please enter trail length." required>
-            </div>
-            <div class="help-block with-errors"></div>
-            <label class="control-label col-sm-1" for="mi">mi
-            </label>
-            <div class="col-sm-1 ">
-                <input type="radio" class="form-control" id="mi"
-                       name="units" value="mi">
-            </div>
-            <label class="control-label col-sm-1" for="km">km
-            </label>
-            <div class="col-sm-1">
-                <input type="radio" class="form-control" id="km"
-                       name="units" value="km">
-            </div>
-        </div>
 
         <div class="form-group">
             <label class="control-label col-sm-2" for="difficulty">Difficulty
@@ -118,7 +79,7 @@
             </div>
             <div class="help-block with-errors"></div>
         </div>
-        <div class="form-group">x
+        <div class="form-group">
             <label class="control-label col-sm-2" for="type">Type
             </label>
             <div class="col-sm-4">

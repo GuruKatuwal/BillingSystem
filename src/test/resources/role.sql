@@ -1,0 +1,2 @@
+DELETE from role;
+INSERT INTO role VALUES (1,'JCoyne','SuperSecret1','admin',1),(2,'FHanson','SuperSecret2','user',2),(3,'BCurry','SuperSecret3','admin',3),(4,'KKmack','SuperSecret4','user',4),(5,'Dklein','SuperSecret5','admin',5),(6,'DTilman','SuperSecret6','admin',6);

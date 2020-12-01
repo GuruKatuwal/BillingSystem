@@ -119,6 +119,20 @@ public class GenericDao<T> {
         return entities;
     }
 
+    public List<T> getByPropertyLike(String propertyName, String value) {
+        Session session = getSession();
+
+        logger.debug("Searching for order with " + propertyName + " = " + value);
+
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery( type );
+        Root<T> root = query.from(type );
+        query.select(root).where(builder.like(root.get(propertyName), value));
+        List<T> entities = session.createQuery( query ).getResultList();
+
+        session.close();
+        return entities;
+    }
 
 
     /**

@@ -1,7 +1,7 @@
 package BillingSystem.persistence;
 
 
-import BillingSystem.entity.com.country.Zippo;
+import BillingSystem.com.country.Zippo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
@@ -11,11 +11,6 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.net.URL;
 import java.util.Properties;
 
 /**

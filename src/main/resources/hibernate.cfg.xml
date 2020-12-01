@@ -18,6 +18,8 @@
 
         <mapping class="BillingSystem.entity.User" />
         <mapping class="BillingSystem.entity.Billing" />
+        <mapping class="BillingSystem.entity.Role" />
+
 
 
 

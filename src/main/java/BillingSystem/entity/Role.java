@@ -1,0 +1,132 @@
+package BillingSystem.entity;
+
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import java.util.Set;
+
+/**
+ * The type Role.
+ */
+@Entity(name = "Role")
+@Table(name = "role")
+public class Role {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
+    private int id;
+
+    private String username;
+
+    private String password;
+
+    private String role;
+
+    @ManyToOne
+    private User user;
+
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * Gets role.
+     *
+     * @return the role
+     */
+    public String getRole() {
+        return role;
+    }
+
+    /**
+     * Sets role.
+     *
+     * @param role the role
+     */
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    /**
+     * Gets user.
+     *
+     * @return the user
+     */
+    public User getUser() {
+        return user;
+    }
+
+    /**
+     * Sets user.
+     *
+     * @param user the user
+     */
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * Instantiates a new Role.
+     */
+    public Role() {
+    }
+
+    /**
+     * Instantiates a new Role.
+     *
+     * @param role the role
+     * @param user the user
+     */
+//    public Role(String role, User user) {
+//        this.role = role;
+//        this.user = user;
+//    }
+
+    public Role( String username, String password, String role, User user) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                ", user=" + user +
+                '}';
+    }
+}

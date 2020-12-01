@@ -11,8 +11,12 @@ Date | Task | Hours | Notes
 
 10/05| Added Security Authentication and  Draw database Design | 20hrs
 
-10/10|Implemented Security Authentication to the project |20
+10/10|Implemented Security Authentication to the project |20hrs
 
-10/20|Added Database and push to aws |20
+10/20|Added Database and push to aws |25hr 
 
-10/30|Working on the Jsp|20
+10/30|Working on the Jsp|20hrs 
+
+11/10| working on more jsp |30hrs 
+
+11/20 |Try to apply profile and lombok| 15 hrs

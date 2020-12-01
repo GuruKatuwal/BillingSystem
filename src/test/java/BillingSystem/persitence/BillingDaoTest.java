@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -29,7 +28,7 @@ public class BillingDaoTest {
     void SetUp(){
         genericDao = new GenericDao(Billing.class);
         Database database = Database.getInstance();
-        database.runSQL("account.sql");
+        database.runSQL("billing.sql");
 
     }
 
@@ -49,7 +48,7 @@ public class BillingDaoTest {
     void getByIdSuccess()
     {
         Billing retriedBilling = (Billing)genericDao.getById(1);
-        assertEquals("2020-10-22", retriedBilling.getReadingDate());
+        assertEquals(LocalDate.parse("2020-10-22"), retriedBilling.getPaymentDate());
     }
 
 
@@ -58,27 +57,24 @@ public class BillingDaoTest {
      */
 //    @Test
 //    void insertSuccess() {
-////        genericDao = new GenericDao(Billing.class);
-//        User user = (User) genericDao.getById(1);
-//        Billing newBilling = new Billing("2020-10-22","140","40","2020-10-22","100","50","100008", user);
-//        user.addBilling(newBilling);
+//        genericDao = new GenericDao(Billing.class);
+//        User user = (User)genericDao.getById(1);
+//        Billing newBilling = new Billing(LocalDate.parse("2020-11-01"),140.00,40.00,200.00,LocalDate.parse("2020-10-10"),90.00,75.00, user);
+//        user.addBilling((newBilling));
 //
 //        int id = genericDao.insert(newBilling);
 //
-//        assertNotEquals(0,id);
 //        Billing insertedBilling = (Billing)genericDao.getById(id);
-//        assertNotNull(insertedBilling.getUser());
-//        assertEquals("joe", insertedBilling.getUser());
-//        assertEquals("2020-10-22",insertedBilling.getReadingDate());
+//        assertEquals("joe Coyne", insertedBilling.getUser().getName());
+//        assertEquals("2010-10-22",insertedBilling.getPaymentDate());
 //    }
-
 
     /**
      * Update success.
      */
     @Test
     void updateSuccess() {
-        String paymentUpdate = "50.0";
+        Double paymentUpdate = 50.0;
         Billing BillingToUpdate = (Billing) genericDao.getById(1);
         BillingToUpdate.setPaidAmount(paymentUpdate);
         genericDao.saveOrUpdate(BillingToUpdate);

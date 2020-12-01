@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: student
@@ -5,9 +7,8 @@
   Time: 2:44 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-
+<html>
+<jsp:include page="/head.jsp" />
 <body role="document">
 <jsp:include page="navbar.jsp" />
 <div class = "container">
@@ -82,8 +83,7 @@
                 data-disable="true">Submit
         </button>
         <button type="reset" class="btn btn-default">Clear</button>
-        <!--for google recaptcha-->
-        <div class="g-recaptcha" data-sitekey="6LewtTgUAAAAADuEbgusz9FbghpuXq-gBm6rLPS9"></div>
+
     </form>
 </div>
 </body>

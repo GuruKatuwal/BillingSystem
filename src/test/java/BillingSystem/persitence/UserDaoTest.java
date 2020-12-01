@@ -1,5 +1,6 @@
 package BillingSystem.persitence;
 import BillingSystem.entity.Billing;
+import BillingSystem.entity.Role;
 import BillingSystem.entity.User;
 import BillingSystem.persistence.GenericDao;
 import BillingSystem.testUtils.Database;
@@ -29,7 +30,7 @@ public class UserDaoTest {
     void SetUp(){
         genericDao = new GenericDao(User.class);
         Database database = Database.getInstance();
-        database.runSQL("role_test.sql");
+        database.runSQL("user.sql");
 
     }
 
@@ -49,7 +50,7 @@ public class UserDaoTest {
     void getByIdSuccess()
     {
         User retriedUser = (User)genericDao.getById(1);
-        assertEquals("Joe", retriedUser.getUserName());
+        assertEquals("Joe Coyne", retriedUser.getName());
     }
 
 
@@ -59,23 +60,23 @@ public class UserDaoTest {
     @Test
     void insertSuccessUser() {
 
-        User newUser = new User("Dawn","DTilman","Dawn Tilman","123 Street st","Madison","WI","53711","6086925566","admin","customer",LocalDate.parse("1163-01-01"));
+        User newUser = new User("Dawn Tilman","123 Street st","Madison","WI","53711","6086925566","customer",LocalDate.parse("1163-01-01"));
         int id = genericDao.insert(newUser);
         assertNotEquals(0,id);
         User insertedUser = (User)genericDao.getById(id);
         assertNotNull(insertedUser);
         assertEquals("Dawn Tilman", insertedUser.getName());
-        assertEquals("Dawn",insertedUser.getUserName());
+        assertEquals("6086925566",insertedUser.getPhone());
     }
 
     /**
      * Insert with account success.
      */
     @Test
-    void insertWithAccountSuccess(){
-        User newUser = new User("Dawn","DTilman","Dawn Tilman","123 Street st","Madison","WI","53711","6086925566","admin","user",LocalDate.parse("1163-01-01"));
+    void insertWithBillingSuccess(){
+        User newUser = new User("Dawn Tilman","123 Street st","Madison","WI","53711","6086925566","user",LocalDate.parse("1163-01-01"));
 
-        Billing billing = new Billing("2020-10-10","140","40","2020-10-10","100","50","100008",newUser);
+        Billing billing = new Billing(LocalDate.parse("2020-10-10"),140.00,40.00,200.00,LocalDate.parse("2020-10-10"),90.00,75.00, newUser);
 
         newUser.addBilling(billing);
 
@@ -83,7 +84,23 @@ public class UserDaoTest {
         assertNotEquals(0, id);
         User insertedUser = (User) genericDao.getById(id);
 
-        assertEquals("Dawn", insertedUser.getUserName());
+        assertEquals("Dawn Tilman", insertedUser.getName());
+
+    }
+    @Test
+    void insertWithRoleSuccess(){
+        User newUser = new User("Dale Parker","123 Street st","Madison","WI","53711","6086925566","user",LocalDate.parse("1163-01-01"));
+
+        Role role = new Role("Dparker","SuperSecret123","admin", newUser);
+
+        newUser.addRole(role);
+
+        int id = genericDao.insert(newUser);
+
+        assertNotEquals(0, id);
+        User insertedUser = (User) genericDao.getById(id);
+
+        assertEquals("Dale Parker", insertedUser.getName());
     }
 
     /**
@@ -93,10 +110,10 @@ public class UserDaoTest {
     void updateSuccess() {
         String newName = "Joe";
         User UserToUpdate = (User) genericDao.getById(1);
-        UserToUpdate.setUserName(newName);
+        UserToUpdate.setName(newName);
         genericDao.saveOrUpdate(UserToUpdate);
         User UserAfterUpdate = (User)genericDao.getById(1);
-        assertEquals(newName, UserAfterUpdate.getUserName());
+        assertEquals(newName, UserAfterUpdate.getName());
     }
 
     /**

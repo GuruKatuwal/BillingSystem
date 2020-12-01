@@ -1,4 +1,4 @@
-package BillingSystem.entity.com.country;
+package BillingSystem.com.country;
 
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;

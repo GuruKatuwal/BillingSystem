@@ -1,6 +1,6 @@
 package BillingSystem.persitence;
 
-import BillingSystem.entity.com.country.Zippo;
+import BillingSystem.com.country.Zippo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import javax.ws.rs.client.*;
