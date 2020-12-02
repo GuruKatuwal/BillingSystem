@@ -13,17 +13,25 @@
     <table id="userTable" class="display" cellspacing="0" width="100%">
         <thead>
         <th>Name</th>
-        <th>User Name</th>
+        <th>address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Phone</th>
+        <th>Description</th>
         <th>Age</th>
-        <th>Role</th>
+
         </thead>
         <tbody>
         <c:forEach var="user" items="${users}">
             <tr>
                  <td>${user.name}</td>
-                <td>${user.userName}</td>
+                <td>${user.address}</td>
+                <td>${user.city}</td>
+                <td>${user.state}</td>
+                <td>${user.zipcode}</td>
+                <td>${user.phone}</td>
+                <td>${user.description}</td>
                 <td>${user.age}</td>
-                <td>${user.role}</td>
 
             </tr>
 

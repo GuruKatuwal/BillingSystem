@@ -10,7 +10,7 @@
 <html>
 <jsp:include page="head.jsp" />
 <body>
-<div class="container theme-showcase" role="main">
+<div class="container" role="main">
 
     <div class="col-sm4 col-sm-offset-4">
         <FORM id="signInForm" role="form" class="form-horizontal" ACTION="j_security_check" METHOD="POST">

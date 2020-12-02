@@ -16,35 +16,26 @@
           action="signUpUser"
           method="post">
 
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="firstName">First
-                Name</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" id="firstName"
-                       name="firstName"
-                       data-error="Please enter your first name." required>
-            </div>
-            <div class="help-block with-errors"></div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="lastName">Last Name</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" id="lastName"
-                       name="lastName"
-                       data-error="Please enter your last name." required>
-            </div>
-            <div class="help-block with-errors"></div>
-        </div>
-        <div class="form-group">
-            <label  class="control-label col-sm-2" for="emailAddress">Email
-                Address</label>
-            <div class="col-sm-4">
-                <input type="email" class="form-control" id="emailAddress"
-                       name="emailAddress"
-                       data-error="Please enter your email address." required>
-            </div>
-            <div class="help-block with-errors"></div>
-        </div>
+<%--        <div class="form-group">--%>
+<%--            <label class="control-label col-sm-2" for="firstName">First--%>
+<%--                Name</label>--%>
+<%--            <div class="col-sm-4">--%>
+<%--                <input type="text" class="form-control" id="firstName"--%>
+<%--                       name="firstName"--%>
+<%--                       data-error="Please enter your first name." required>--%>
+<%--            </div>--%>
+<%--            <div class="help-block with-errors"></div>--%>
+<%--        </div>--%>
+<%--        <div class="form-group">--%>
+<%--            <label class="control-label col-sm-2" for="lastName">Last Name</label>--%>
+<%--            <div class="col-sm-4">--%>
+<%--                <input type="text" class="form-control" id="lastName"--%>
+<%--                       name="lastName"--%>
+<%--                       data-error="Please enter your last name." required>--%>
+<%--            </div>--%>
+<%--            <div class="help-block with-errors"></div>--%>
+<%--        </div>--%>
+
         <div class="form-group">
             <label  class="control-label col-sm-2" for="userName">Username</label>
             <div class="col-sm-4">
@@ -77,6 +68,16 @@
                        required data-error="Please retype your password.">
                 <div class="help-block with-errors"></div>
             </div>
+        </div>
+        <div class="form-group">
+            <label  class="control-label col-sm-2" for="role"> Role
+                </label>
+            <div class="col-sm-4">
+                <input type="role" class="form-control" id="role"
+                       name="role"
+                       data-error="Please enter your role." required>
+            </div>
+            <div class="help-block with-errors"></div>
         </div>
 
         <button type="submit" class="btn btn-default col-sm-offset-3"

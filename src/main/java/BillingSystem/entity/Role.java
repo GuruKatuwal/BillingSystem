@@ -79,18 +79,38 @@ public class Role {
         this.user = user;
     }
 
+    /**
+     * Gets username.
+     *
+     * @return the username
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     * Sets username.
+     *
+     * @param username the username
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     * Gets password.
+     *
+     * @return the password
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * Sets password.
+     *
+     * @param password the password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
@@ -101,17 +121,15 @@ public class Role {
     public Role() {
     }
 
+
     /**
      * Instantiates a new Role.
      *
-     * @param role the role
-     * @param user the user
+     * @param username the username
+     * @param password the password
+     * @param role     the role
+     * @param user     the user
      */
-//    public Role(String role, User user) {
-//        this.role = role;
-//        this.user = user;
-//    }
-
     public Role( String username, String password, String role, User user) {
         this.username = username;
         this.password = password;

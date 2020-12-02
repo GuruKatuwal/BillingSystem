@@ -1,4 +1,2 @@
 DELETE FROM billing;
-DELETE FROM user;
-INSERT INTO user VALUES (1,'Joe Coyne','123 Street st','Madison','WI','53711','6086252222','Employee','1963-01-01'),(2,'Fred Hansen','123 Street st','Fitchberg','WI','53711','608625333','Employee','1973-01-01'),(3,'Barney Curry','123 Street st','Madison','WI','53711','608625444','Employee','1983-01-01'),(4,'Karen Kmack','123 Street st','Verona','WI','53711','608625111','Employee','1993-01-01'),(5,'Dianne Klein','123 Street st','Madison','WI','53711','6086252662','Employee','1984-01-01'),(6,'Dawn Tilman','123 Street st','Sun Prairie','WI','53711','6086257722','Employee','2001-01-01');
 INSERT INTO billing VALUES (1,'2020-10-22','140','40','200','2020-10-22','90.00','75.00',1),(2,'2020-10-23','150','10','100','2020-10-23','90.00','75.00',2),(3,'2020-10-24','200','150','50','2020-10-24','190.00','175.00',3),(4,'2020-10-26','1000','100','200','2020-10-22','50.00','45.00',4);

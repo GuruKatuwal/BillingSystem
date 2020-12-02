@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * The type Billing dao test.
@@ -82,14 +82,15 @@ public class BillingDaoTest {
         assertEquals(paymentUpdate, BillingAfterUpdate.getPaidAmount());
     }
 
+
     /**
      * Delete success.
      */
-//    @Test
-//    void deleteSuccess() {
-//        genericDao.delete(genericDao.getById(43));
-//        assertNull(genericDao.getById(43));
-//    }
+    @Test
+    void deleteSuccess() {
+        genericDao.delete(genericDao.getById(4));
+        assertNull(genericDao.getById(4));
+    }
 
 
 }

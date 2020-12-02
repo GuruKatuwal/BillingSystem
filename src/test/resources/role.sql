@@ -1,2 +1,4 @@
 DELETE from role;
-INSERT INTO role VALUES (1,'JCoyne','SuperSecret1','admin',1),(2,'FHanson','SuperSecret2','user',2),(3,'BCurry','SuperSecret3','admin',3),(4,'KKmack','SuperSecret4','user',4),(5,'Dklein','SuperSecret5','admin',5),(6,'DTilman','SuperSecret6','admin',6);
+DELETE FROM user;
+INSERT INTO user VALUES (1,'Joe Coyne','123 Street st','Madison','WI','53711','6086252222','Employee','1963-01-01'),(2,'Fred Hansen','123 Street st','Fitchberg','WI','53711','608625333','Employee','1973-01-01'),(3,'Barney Curry','123 Street st','Madison','WI','53711','608625444','Employee','1983-01-01'),(4,'Karen Kmack','123 Street st','Verona','WI','53711','608625111','Employee','1993-01-01'),(5,'Dianne Klein','123 Street st','Madison','WI','53711','6086252662','Employee','1984-01-01'),(6,'Dawn Tilman','123 Street st','Sun Prairie','WI','53711','6086257722','Employee','2001-01-01');
+INSERT INTO role VALUES (1,'JCoyne','SuperSecret1','admin',1),(2,'FHanson','SuperSecret2','user',2),(3,'BCurry','SuperSecret3','admin',3),(4,'KKmack','SuperSecret4','admin',4),(5,'Dklein','SuperSecret5','admin',5),(6,'DTilman','SuperSecret6','admin',6);
