@@ -27,7 +27,7 @@ public class RoleDaoTest {
      * Set up.
      */
     @BeforeEach
-    void SetUp(){
+    void SetUp() {
         genericDao = new GenericDao(Role.class);
         Database database = Database.getInstance();
         database.runSQL("role.sql");
@@ -47,34 +47,27 @@ public class RoleDaoTest {
      * Gets by id success.
      */
     @Test
-    void getByIdSuccess()
-    {
-        Role retrievedRole = (Role)genericDao.getById(1);
+    void getByIdSuccess() {
+        Role retrievedRole = (Role) genericDao.getById(1);
         assertEquals("JCoyne", retrievedRole.getUsername());
-     }
+    }
+
 
     /**
-     * Insert success .
+     * Insert with role success.
      */
     @Test
-    void insertSuccess() {
-//        User user = (User)genericDao.getById(1);
-//        Role newRole = new Role("JCoyne", "SuperSecret1", "admin",user);
-//        user.addRole(newRole);
-//        int id = genericDao.insert(newRole);
-//        assertNotEquals(0,id);
-//        Role insertedUser = (Role)genericDao.getById(id);
-//        assertEquals("Joe Coyne", insertedUser.getUser().getName());
-//        assertEquals("Madison", insertedUser.getUser().getCity());
+    void insertWithRoleSuccess() {
+        genericDao = new GenericDao(User.class);
+        User user = (User)genericDao.getById(1);
+        Role newRole = new Role("JCoyne","SuperSecret123","admin",user);
+        user.addRole(newRole);
 
-//        genericDao = new GenericDao(Role.class);
-//        User user = (User)genericDao.getById(1);
-//        Role newRole = new Role("JCoyne", "SuperSecret1", "admin",user);
-//        user.addRole((newRole));
-//        int id = genericDao.insert(newRole);
-//        Role insertRole = (Role)genericDao.getById(id);
-//        assertEquals("Joe Coyne", insertRole.getUser().getName());
-//        assertEquals("Madison", insertRole.getUser().getCity());
+        int id = genericDao.insert(newRole);
+        assertNotEquals(0,id);
+        assertEquals("JCoyne", newRole.getUsername());
+        assertNotNull(newRole.getUsername());
+        assertEquals("Madison", newRole.getUser().getCity());
 
     }
 
@@ -110,6 +103,7 @@ public class RoleDaoTest {
         List<Role> roles = genericDao.getByPropertyLike("role", "a");
         assertEquals(5, roles.size());
     }
+
     /**
      * Delete success.
      */

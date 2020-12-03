@@ -22,7 +22,12 @@ public class Role {
 
     private String role;
 
+
+
     @ManyToOne
+    @JoinColumn(name = "user_id",
+    foreignKey = @ForeignKey(name = "role_user_id_fk")
+    )
     private User user;
 
     /**
@@ -35,7 +40,7 @@ public class Role {
     }
 
     /**
-     * Sets id.
+     * Sets id.Billing@localhost
      *
      * @param id the id
      */
