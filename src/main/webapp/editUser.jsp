@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: student
+  Date: 12/5/20
+  Time: 3:21 PM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -10,9 +17,9 @@
 <body role="document">
 <jsp:include page="/navbar.jsp" />
 <div class = "container">
-    <form id="addUser" role="form" data-toggle="validator"
+    <form id="editUser" role="form" data-toggle="validator"
           class="form-horizontal"
-          action="addUser.jsp"
+          action="editUser"
           method="POST">
 
         <div class="form-group">
@@ -99,6 +106,7 @@
         <button type="reset" class="btn btn-default">Clear</button>
 
     </form>
+    <p> This id : ${user.id}</p>
 </div>
 </body>
 

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import BillingSystem.entity.Role;
+import BillingSystem.entity.User;
 import BillingSystem.persistence.GenericDao;
 import BillingSystem.util.DaoFactory;
 import org.apache.logging.log4j.Logger;
@@ -22,14 +23,39 @@ public class SignUpUser extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Role role = new Role();
-        role.setUsername(req.getParameter("username"));
-        role.setPassword(req.getParameter("password"));
-        role.setRole(req.getParameter("role"));
 
-        GenericDao dao = DaoFactory.createDao(Role.class);
-        dao.insert(role);
+        String username = req.getParameter("name");
+        String password = req.getParameter("password");
+        String role = req.getParameter("role");
+//
+//       GenericDao genericDao = new GenericDao(User.class);
+//        User user = (User)genericDao.getById(Integer.parseInt("id"));
+//
+//
+//        GenericDao dao = DaoFactory.createDao(Role.class);
+//        dao.insert(role);
+//        genericDao = new GenericDao(User.class);
+//        User user = (User)genericDao.getById(1);
+//        Role newRole = new Role("JCoyne","SuperSecret123","admin",user);
+//        user.addRole(newRole)
+//        Role role = new Role();
+//        role.setUsername(req.getParameter("username"));
+//        role.setPassword(req.getParameter("password"));
+//        role.setRole(req.getParameter("role"));
+//        logger.debug("Adding Roll " + role);
+
+//        User user = new User();
+//        role.setUser(user);
+
+//
+        GenericDao genericDao = new GenericDao(User.class);
+//        User user = (User)genericDao.getById((id));
+//        Role newRole = genericDao.getById(int id)
+//        Role newRole = new Role(username,password,role,user);
+//        genericDao.insert(role);
+
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/signUpConformation.jsp");
+        dispatcher.forward(req, resp);
     }
 }

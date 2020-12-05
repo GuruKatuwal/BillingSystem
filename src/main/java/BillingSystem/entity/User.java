@@ -1,15 +1,14 @@
 package BillingSystem.entity;
 
-import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
 import java.util.Set;
 
+import java.time.format.DateTimeFormatter;
 
 /**
  * A class to represent a user.
@@ -61,7 +60,10 @@ public class User {
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
 
-
+    /**
+     * The constant dateTimeFormatter.
+     */
+    public static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
     /**
      * Gets name.
@@ -80,7 +82,6 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
-
 
 
     /**
@@ -198,8 +199,8 @@ public class User {
      *
      * @return the date of birth
      */
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
+    public String getDateOfBirth() {
+        return String.valueOf(dateOfBirth);
     }
 
     /**
@@ -334,7 +335,7 @@ public class User {
      * @param description the description
      * @param dateOfBirth the date of birth
      */
-    public User(String name, String address, String city, String state, String zipcode, String phone, String description, LocalDate dateOfBirth) {
+    public User( String name, String address, String city, String state, String zipcode, String phone, String description, String dateOfBirth) {
         this.name = name;
         this.address = address;
         this.city = city;
@@ -342,9 +343,33 @@ public class User {
         this.zipcode = zipcode;
         this.phone = phone;
         this.description = description;
-        this.dateOfBirth = dateOfBirth;
+        this.dateOfBirth = LocalDate.parse(dateOfBirth);
     }
 
+    /**
+     * Instantiates a new User.
+     *
+     * @param id          the id
+     * @param name        the name
+     * @param address     the address
+     * @param city        the city
+     * @param state       the state
+     * @param zipcode     the zipcode
+     * @param phone       the phone
+     * @param description the description
+     * @param dateOfBirth the date of birth
+     */
+    public User(int id,String name, String address, String city, String state, String zipcode, String phone, String description, String dateOfBirth) {
+        this.name = name;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zipcode = zipcode;
+        this.phone = phone;
+        this.description = description;
+        this.dateOfBirth = LocalDate.parse(dateOfBirth);
+        this.id = id;
+    }
 
     @Override
     public String toString() {

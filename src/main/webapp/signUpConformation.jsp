@@ -12,7 +12,8 @@
 
     <body role="document">
         <jsp:include page="navbar.jsp"/>
-        <div class="container" role="main">
+        <div class="container theme-showcase" role="main">
+
             <c:choose>
                 <c:when test="${errorMessage == null}">
                     <div class="alert alert-success" role="alert">
@@ -23,12 +24,12 @@
                     <div class="alert alert-danger" role="alert">
                         <strong> Registration Failed</strong> <br />
                         ${errorMessage} <br />
-                        <a href="signUp.jsp">
+                        <a href="addUser.jsp">
                             <button type="button" class="btn btn-primary">
                                 Retry
                             </button>
                         </a>
-                        <a href="viewreport">
+                        <a href="results.jsp">
                             <button type="button" class="btn btn-primary">
                                  Cancel
                             </button>

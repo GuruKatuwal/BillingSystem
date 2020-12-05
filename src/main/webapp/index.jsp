@@ -6,11 +6,11 @@
 
 <!--end header -->
 <!-- main -->
-<div id="main">
-
-
-    <h1> Welcome to my billing system project!!!!</h1>
-    <h2>Comming soon...............</h2>
+<div class="container">
+    <button type="Login" href="signIn.jsp"class="btn btn-default col-sm-offset-3"
+            data-disable="true">New User
+    </button>
+    <button type="signin" href="signUp.jsp"class="btn btn-default">Existing User</button>
 
     <h3><a href="awsSearch.jsp">Click here to search</a></h3>
     <h3><a href="search.jsp">Click here to search(admin Only)</a></h3>

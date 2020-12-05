@@ -60,7 +60,7 @@ public class UserDaoTest {
     @Test
     void insertSuccessUser() {
 
-        User newUser = new User("Dawn Tilman","123 Street st","Madison","WI","53711","6086925566","customer",LocalDate.parse("1163-01-01"));
+        User newUser = new User("Dawn Tilman","123 Street st","Madison","WI","53711","6086925566","customer","1984-01-01");
         int id = genericDao.insert(newUser);
         assertNotEquals(0,id);
         User insertedUser = (User)genericDao.getById(id);
@@ -74,7 +74,7 @@ public class UserDaoTest {
      */
     @Test
     void insertWithBillingSuccess(){
-        User newUser = new User("Dawn Tilman","123 Street st","Madison","WI","53711","6086925566","user",LocalDate.parse("1163-01-01"));
+        User newUser = new User("Dawn Tilman","123 Street st","Madison","WI","53711","6086925566","user","1984-01-01");
 
         Billing billing = new Billing(LocalDate.parse("2020-10-10"),140.00,40.00,200.00,LocalDate.parse("2020-10-10"),90.00,75.00, newUser);
 
@@ -89,7 +89,7 @@ public class UserDaoTest {
     }
     @Test
     void insertWithRoleSuccess(){
-        User newUser = new User("Dale Parker","123 Street st","Madison","WI","53711","6086925566","user",LocalDate.parse("1163-01-01"));
+        User newUser = new User("Dale Parker","123 Street st","Madison","WI","53711","6086925566","user","1984-01-01");
 
         Role role = new Role("Dparker","SuperSecret123","admin", newUser);
 

@@ -1,4 +1,5 @@
 package BillingSystem.controller;
+import BillingSystem.entity.Role;
 import BillingSystem.entity.User;
 import BillingSystem.persistence.GenericDao;
 import BillingSystem.util.DaoFactory;
@@ -30,6 +31,11 @@ public class AddUser extends HttpServlet {
         user.setDescription(req.getParameter("description"));
         user.setDescription(req.getParameter("Dateofbirth"));
 
+        Role role = new Role();
+        role.setUser(user);
+        role.setRole("user");
+        user.addRole(role);
+
         logger.debug("Adding User " + user);
 
 
@@ -37,7 +43,7 @@ public class AddUser extends HttpServlet {
         int id = ((GenericDao)genericDao).insert(User.class);
 
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/signUpConfirmation" +".jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/signUpConformation.jsp");
         dispatcher.forward(req,resp);
     }
 }
