@@ -24,7 +24,7 @@
                     <div class="alert alert-danger" role="alert">
                         <strong> Registration Failed</strong> <br />
                         ${errorMessage} <br />
-                        <a href="addUser.jsp">
+                        <a href="signIn.jsp.jsp">
                             <button type="button" class="btn btn-primary">
                                 Retry
                             </button>

@@ -18,12 +18,12 @@
 <body>
         <div class="container-fluid">
             <h2>Search Results: </h2>
-            <h2>  <a class='add' title="Add" data-toggle="tooltip" href="addUser.jsp"><i class="material-icons" style="font-size:20px;color:green">&#xe146;</i></a></h2>
+            <h2>  <a class='add' title="Add" data-toggle="tooltip" href="signUp.jsp"><i class="material-icons" style="font-size:20px;color:green">&#xe146;</i></a></h2>
             <table id="userTable" class="display" cellspacing="0" width="100%">
                 <thead>
-                <th>Id</th>
                 <th>Name</th>
-                <th>address</th>
+                <th>User Name</th>
+                <th>Address</th>
                 <th>City</th>
                 <th>State</th>
                 <th>Zip code</th>
@@ -35,8 +35,9 @@
                 <tbody>
                 <c:forEach var="user" items="${users}">
                     <tr>
-                        <td>${user.id}</td>
+
                         <td>${user.name}</td>
+                        <td>${user.username}</td>
                         <td>${user.address}</td>
                         <td>${user.city}</td>
                         <td>${user.state}</td>

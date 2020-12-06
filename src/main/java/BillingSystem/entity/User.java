@@ -22,6 +22,12 @@ public class User {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "username")
+    private String username;
+
+    @Column(name = "password")
+    private String password;
+
     @Column(name = "address")
     private String address;
 
@@ -83,6 +89,41 @@ public class User {
         this.name = name;
     }
 
+    /**
+     * Gets username.
+     *
+     * @return the username
+     */
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * Sets username.
+     *
+     * @param username the username
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    /**
+     * Gets password.
+     *
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * Sets password.
+     *
+     * @param password the password
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     /**
      * Gets address.
@@ -326,7 +367,10 @@ public class User {
     /**
      * Instantiates a new User.
      *
+     * @param id          the id
      * @param name        the name
+     * @param username    the username
+     * @param password    the password
      * @param address     the address
      * @param city        the city
      * @param state       the state
@@ -335,22 +379,27 @@ public class User {
      * @param description the description
      * @param dateOfBirth the date of birth
      */
-    public User( String name, String address, String city, String state, String zipcode, String phone, String description, String dateOfBirth) {
+    public User(int id,String name, String username, String password, String address, String city, String state, String zipcode, String phone, String description, String dateOfBirth) {
+        this.id = id;
         this.name = name;
+        this.username = username;
+        this.password = password;
         this.address = address;
         this.city = city;
         this.state = state;
         this.zipcode = zipcode;
         this.phone = phone;
         this.description = description;
-        this.dateOfBirth = LocalDate.parse(dateOfBirth);
+        this.dateOfBirth = LocalDate.parse(dateOfBirth, dateTimeFormatter);
+
     }
 
     /**
      * Instantiates a new User.
      *
-     * @param id          the id
      * @param name        the name
+     * @param username    the username
+     * @param password    the password
      * @param address     the address
      * @param city        the city
      * @param state       the state
@@ -359,33 +408,35 @@ public class User {
      * @param description the description
      * @param dateOfBirth the date of birth
      */
-    public User(int id,String name, String address, String city, String state, String zipcode, String phone, String description, String dateOfBirth) {
+    public User(String name, String username, String password, String address, String city, String state, String zipcode, String phone, String description, String dateOfBirth) {
         this.name = name;
+        this.username = username;
+        this.password = password;
         this.address = address;
         this.city = city;
         this.state = state;
         this.zipcode = zipcode;
         this.phone = phone;
         this.description = description;
-        this.dateOfBirth = LocalDate.parse(dateOfBirth);
-        this.id = id;
+        this.dateOfBirth = LocalDate.parse(dateOfBirth, dateTimeFormatter);
     }
 
     @Override
     public String toString() {
         return "User{" +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", address='" + address + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", zipcode='" + zipcode + '\'' +
                 ", phone='" + phone + '\'' +
                 ", description='" + description + '\'' +
-                ", id=" + id +
                 ", dateOfBirth=" + dateOfBirth +
-                ", age=" + getAge() +
+                ", id=" + id +
+                ", billings=" + billings +
+                ", roles=" + roles +
                 '}';
     }
-
-
 }

@@ -2,6 +2,8 @@ package BillingSystem.controller;
 
 import BillingSystem.entity.User;
 import BillingSystem.persistence.GenericDao;
+import BillingSystem.util.DaoFactory;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,31 +21,45 @@ public class EditUser extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        GenericDao genericDao = new GenericDao(User.class);
 
-        String name = req.getParameter("name");
-        String address = req.getParameter("address");
-        String city = req.getParameter("city");
-        String state = req.getParameter("state");
-        String zipcode = req.getParameter("zipcode");
-        String phone = req.getParameter("phone");
-        String description = req.getParameter("description");
-        String dateOfBirth = req.getParameter("dateOfBirth");
-        int id = Integer.valueOf(req.getParameter("id"));
+        GenericDao<User> genericDao = DaoFactory.createDao(User.class);
+        User userToUpdate = genericDao.getById(Integer.parseInt(req.getParameter("id")));
 
-
-        User userToUpdate = (User)genericDao.getById(id);
-
-        userToUpdate.setName(name);
-        userToUpdate.setAddress(address);
-        userToUpdate.setCity(city);
-        userToUpdate.setState(state);
-        userToUpdate.setZipcode(zipcode);
-        userToUpdate.setPhone(phone);
-        userToUpdate.setDescription(description);
-        userToUpdate.setDateOfBirth(LocalDate.parse(dateOfBirth));
+        userToUpdate.setName(req.getParameter("name"));
+        userToUpdate.setAddress(req.getParameter("address"));
+        userToUpdate.setCity(req.getParameter("city"));
+        userToUpdate.setState(req.getParameter("state"));
+        userToUpdate.setZipcode(req.getParameter("zipcode"));
+        userToUpdate.setPhone(req.getParameter("phone"));
+        userToUpdate.setDescription(req.getParameter("description"));
+        userToUpdate.setDateOfBirth(LocalDate.parse(req.getParameter("dateOfBirth")));
 
         genericDao.saveOrUpdate(userToUpdate);
+
+//        GenericDao genericDao = new GenericDao(User.class);
+//        String name = req.getParameter("name");
+//        String address = req.getParameter("address");
+//        String city = req.getParameter("city");
+//        String state = req.getParameter("state");
+//        String zipcode = req.getParameter("zipcode");
+//        String phone = req.getParameter("phone");
+//        String description = req.getParameter("description");
+//        String dateOfBirth = req.getParameter("dateOfBirth");
+//        int id = Integer.parseInt(req.getParameter("id"));
+//
+//
+//        User userToUpdate = (User)genericDao.getById(id);
+//
+//        userToUpdate.setName(name);
+//        userToUpdate.setAddress(address);
+//        userToUpdate.setCity(city);
+//        userToUpdate.setState(state);
+//        userToUpdate.setZipcode(zipcode);
+//        userToUpdate.setPhone(phone);
+//        userToUpdate.setDescription(description);
+//        userToUpdate.setDateOfBirth(LocalDate.parse(dateOfBirth));
+//
+//        genericDao.saveOrUpdate(userToUpdate);
 
 //        @Test
 //        void updateSuccess() {
@@ -72,9 +88,12 @@ public class EditUser extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        GenericDao genericDao = new GenericDao(User.class);
 
-        req.setAttribute("user", genericDao.getById(Integer.parseInt(req.getParameter("id"))));
+        GenericDao<User> genericDao = new GenericDao(User.class);
+
+        User userToUpdate = genericDao.getById(Integer.parseInt(req.getParameter("id")));
+
+        req.setAttribute("user", userToUpdate);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/editUser.jsp");
         dispatcher.forward(req,resp);

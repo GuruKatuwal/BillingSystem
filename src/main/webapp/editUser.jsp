@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: student
-  Date: 12/5/20
-  Time: 3:21 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -12,9 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<html>
+<html lang="en">
 <jsp:include page="/head.jsp" />
 <body role="document">
+
 <jsp:include page="/navbar.jsp" />
 <div class = "container">
     <form id="editUser" role="form" data-toggle="validator"
@@ -26,7 +21,7 @@
             <label class="control-label col-sm-2" for="name">Name</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="name"
-                       name="name"
+                       value="${user.name}"
                        data-error="Please enter the full name." required>
             </div>
             <div class="help-block with-errors"></div>
@@ -36,7 +31,7 @@
                 Address</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="address"
-                       name="address"
+                       value="${user.address}"
                        data-error="Please enter the  street address."
                        required>
             </div>
@@ -46,7 +41,7 @@
             <label class="control-label col-sm-2" for="city">City</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="city"
-                       name="city"
+                       value="${user.city}"
                        data-error="Please enter the city." required>
             </div>
             <div class="help-block with-errors"></div>
@@ -55,16 +50,16 @@
             <label class="control-label col-sm-2" for="state">State/Province</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="state"
-                       name="state"
+                       value="${user.state}"
                        data-error="Please enter the state." required>
             </div>
             <div class="help-block with-errors"></div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2" for="postalCode">Postal Code</label>
+            <label class="control-label col-sm-2" for="postalCode">Zip Code</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="postalCode"
-                       name="postalCode"
+                       value="${user.zipcode}"
                        data-error="Please enter the postal code." required>
             </div>
             <div class="help-block with-errors"></div>
@@ -73,7 +68,7 @@
             <label class="control-label col-sm-2" for="phone">Phone</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="phone"
-                       name="phone"
+                       value="${user.phone}"
                        data-error="Please enter the phone number." required>
             </div>
             <div class="help-block with-errors"></div>
@@ -83,7 +78,7 @@
             </label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="description"
-                       name="description"
+                       value="${user.description}"
                        data-error="Please enter trail description." required>
             </div>
             <div class="help-block with-errors"></div>
@@ -93,15 +88,15 @@
             <label class="control-label col-sm-2" for="dateofbirth">Date Of Birth</label>
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="dateofbirth"
-                       name="dateofbirth"
+                       value="${user.dateOfBirth}"
                        data-error="Please enter your Date Of Birth." required>
             </div>
             <div class="help-block with-errors"></div>
         </div>
 
 
-        <button type="submit" class="btn btn-default col-sm-offset-3"
-                data-disable="true">Submit
+        <button type="submit" class="btn btn-default col-sm-offset-3" name="submit" value="Update"
+                data-disable="true">Update
         </button>
         <button type="reset" class="btn btn-default">Clear</button>
 

@@ -28,7 +28,6 @@ public class DeleteUser extends HttpServlet {
 
         String name = req.getParameter("name");
 
-//        RequestDispatcher dispatcher = req.getRequestDispatcher("searchUser?param1="+name + "&submit=viewAll");
         RequestDispatcher dispatcher = req.getRequestDispatcher("searchUser?searchTerm=&submit=viewAll");
         dispatcher.forward(req, resp);
     }
@@ -37,8 +36,3 @@ public class DeleteUser extends HttpServlet {
         doPost(req,resp);
     }
 }
-//    @Test
-//    void deleteSuccess() {
-//        genericDao.delete(genericDao.getById(81));
-//        assertNull(genericDao.getById(81));
-//    }

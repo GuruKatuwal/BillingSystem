@@ -60,7 +60,7 @@ public class RoleDaoTest {
     void insertWithRoleSuccess() {
         genericDao = new GenericDao(User.class);
         User user = (User)genericDao.getById(1);
-        Role newRole = new Role("JCoyne","SuperSecret123","admin",user);
+        Role newRole = new Role("JCoyne","admin",user);
         user.addRole(newRole);
 
         int id = genericDao.insert(newRole);
@@ -76,12 +76,12 @@ public class RoleDaoTest {
      */
     @Test
     void updateSuccess() {
-        String retrivedPassword = "SuperSecret";
+        String retrievedUserName = "SuperSecret";
         Role roleToUpdate = (Role)genericDao.getById(1);
-        roleToUpdate.setPassword(retrivedPassword);
+        roleToUpdate.setUsername(retrievedUserName);
         genericDao.saveOrUpdate((roleToUpdate));
         Role passwordAfterUpdate = (Role)genericDao.getById(1);
-        assertEquals(retrivedPassword,passwordAfterUpdate.getPassword());
+        assertEquals(retrievedUserName,passwordAfterUpdate.getUsername());
 
     }
 

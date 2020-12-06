@@ -18,8 +18,6 @@ public class Role {
 
     private String username;
 
-    private String password;
-
     private String role;
 
 
@@ -30,7 +28,7 @@ public class Role {
     )
     private User user;
 
-    /**
+     /**
      * Gets id.
      *
      * @return the id
@@ -103,24 +101,6 @@ public class Role {
     }
 
     /**
-     * Gets password.
-     *
-     * @return the password
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * Sets password.
-     *
-     * @param password the password
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    /**
      * Instantiates a new Role.
      */
     public Role() {
@@ -131,13 +111,12 @@ public class Role {
      * Instantiates a new Role.
      *
      * @param username the username
-     * @param password the password
+
      * @param role     the role
      * @param user     the user
      */
-    public Role( String username, String password, String role, User user) {
+    public Role( String username,  String role, User user) {
         this.username = username;
-        this.password = password;
         this.role = role;
         this.user = user;
     }
@@ -147,7 +126,6 @@ public class Role {
         return "Role{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
                 ", user=" + user +
                 '}';
