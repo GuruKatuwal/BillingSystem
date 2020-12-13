@@ -1,11 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: student
-  Date: 10/12/20
-  Time: 1:37 PM
-  To change this template use File | Settings | File Templates.
---%>
-
+<%--<div class="alert alert-danger" role="alert">--%>
+<%--    <strong>Login Failed</strong> That userid/password combination--%>
+<%--    does not exist.--%>
+<%--</div>--%>
 <html>
 <jsp:include page="head.jsp" />
 <body role="document">
@@ -18,7 +14,7 @@
     </div>
     <a href="login.jsp"><button type="button" class="btn btn-primary">
         Retry</button></a>
-    <a href="viewUser"><button type="button" class="btn btn-default">Cancel
+    <a href="results.jsp"><button type="button" class="btn btn-default">Cancel
     </button></a>
 
 </div>

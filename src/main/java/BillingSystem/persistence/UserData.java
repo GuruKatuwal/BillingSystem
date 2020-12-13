@@ -84,6 +84,8 @@ public class UserData {
     private User createUserFromResults(ResultSet results) throws SQLException {
         User user = new User();
         user.setName(results.getString("name"));
+        user.setUsername(results.getString("username"));
+        user.setPassword(results.getString("password"));
         user.setAddress(results.getString("address"));
         user.setCity(results.getString("city"));
         user.setState(results.getString("state"));
@@ -111,6 +113,8 @@ public class UserData {
         Connection connection = null;
         String sql = "INSERT INTO user ("
                 + " name,"
+                + " username,"
+                + " password,"
                 + " address,"
                 + " city,"
                 + " state,"
@@ -119,7 +123,7 @@ public class UserData {
                 + " description,"
                 + " date_of_birth,"
                 + " id) VALUES ("
-                + " ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + " ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)";
 
         return executeSql(user, sql);
     }
@@ -135,7 +139,7 @@ public class UserData {
         logger.info("Updating " + user);
 
         Connection connection = null;
-        String sql = "UPDATE user SET name = ?, address = ?, city = ? state = ?,zipcode = ?,phone = ?,description = ?,date_of_birth = ? WHERE id = ?";
+        String sql = "UPDATE user SET name = ?, username = ?, password = ?, address = ?, city = ? state = ?,zipcode = ?,phone = ?,description = ?,date_of_birth = ? WHERE id = ?";
 
         return executeSql(user, sql);
     }
@@ -152,14 +156,16 @@ public class UserData {
 
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, user.getName());
-            st.setString(2, user.getAddress());
-            st.setString(3, user.getCity());
-            st.setString(4, user.getState());
-            st.setString(5, user.getZipcode());
-            st.setString(6, user.getPhone());
-            st.setString(7, user.getDescription());
-            st.setDate(8, Date.valueOf(user.getDateOfBirth()));
-            st.setInt(9, user.getId());
+            st.setString(2, user.getUsername());
+            st.setString(3, user.getPassword());
+            st.setString(4, user.getAddress());
+            st.setString(5, user.getCity());
+            st.setString(6, user.getState());
+            st.setString(7, user.getZipcode());
+            st.setString(8, user.getPhone());
+            st.setString(9, user.getDescription());
+            st.setDate(10, Date.valueOf(user.getDateOfBirth()));
+            st.setInt(11, user.getId());
 
             recordsUpdated = st.executeUpdate();
             st.close();

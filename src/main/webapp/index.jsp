@@ -7,10 +7,9 @@
 <!--end header -->
 <!-- main -->
 <div class="container">
-    <button type="Login" href="signIn.jsp"class="btn btn-default col-sm-offset-3"
-            data-disable="true">New User
-    </button>
-    <button type="signin" href="signUp.jsp"class="btn btn-default">Existing User</button>
+
+    <button type="submit" name="submit" href="signIn.jsp" class="btn btn-primary">New User</button>
+    <button type="submit" name="submit" href="signUp.jsp" class="btn btn-primary">Existing User</button>
 
     <h3><a href="awsSearch.jsp">Click here to search</a></h3>
     <h3><a href="search.jsp">Click here to search(admin Only)</a></h3>
@@ -21,3 +20,4 @@
 <%--<%@include file="footer.jsp"%>--%>
 </body>
 </html>
+

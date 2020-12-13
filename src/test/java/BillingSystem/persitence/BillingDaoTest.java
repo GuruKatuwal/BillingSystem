@@ -48,7 +48,7 @@ public class BillingDaoTest {
     void getByIdSuccess()
     {
         Billing retriedBilling = (Billing)genericDao.getById(1);
-        assertEquals(LocalDate.parse("2020-10-22"), retriedBilling.getPaymentDate());
+        assertEquals("2020-10-22", retriedBilling.getPaymentDate());
     }
 
 
@@ -59,14 +59,14 @@ public class BillingDaoTest {
     void insertSuccessWithUser() {
         genericDao = new GenericDao(User.class);
         User user = (User)genericDao.getById(1);
-        Billing newBilling = new Billing(LocalDate.parse("2020-11-01"),140.00,40.00,200.00,LocalDate.parse("2020-10-10"),90.00,75.00, user);
+        Billing newBilling = new Billing("2020-11-01",140.00,40.00,200.00,"2020-10-10",90.00,75.00, user);
         user.addBilling(newBilling);
         int id = genericDao.insert(newBilling);
 
         assertNotEquals(0,id);
         assertEquals("Joe Coyne", newBilling.getUser().getName());
         assertNotNull(newBilling.getUser().getName());
-        assertEquals(LocalDate.parse("2020-11-01"), newBilling.getPaymentDate());
+        assertEquals("2020-11-01", newBilling.getPaymentDate());
 
     }
 

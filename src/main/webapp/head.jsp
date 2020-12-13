@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -40,7 +40,7 @@
 
     <!-- css for datepicker -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css">
-
+    <script src="js/validator.js"></script>
     <!-- my css -->
 <%--    <link rel="stylesheet" href="css/fbtr.css">--%>
     <!-- Latest compiled and minified JavaScript -->
@@ -54,7 +54,5 @@
     <%@include file="maintitle.jsp"%>
 
 
-    <!-- added for google captcha -->
-    <script src='https://www.google.com/recaptcha/api.js'></script>
 
 </head>

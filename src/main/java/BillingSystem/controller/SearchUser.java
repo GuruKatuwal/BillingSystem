@@ -2,7 +2,8 @@ package BillingSystem.controller;
 
 import BillingSystem.entity.User;
 import BillingSystem.persistence.GenericDao;
-//import BillingSystem.persistence.UserDao;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,6 +19,7 @@ import java.io.IOException;
  */
 
 @WebServlet(
+        name = "SearchUser",
         urlPatterns = {"/searchUser"}
 )
 
@@ -36,8 +38,8 @@ public class SearchUser extends HttpServlet {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/results.jsp");
         dispatcher.forward(req, resp);
     }
-//    @Override
-//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        doPost(req, resp);
-//    }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
 }

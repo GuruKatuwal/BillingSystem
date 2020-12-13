@@ -12,7 +12,7 @@
 <div class = "container">
     <form id="signUp" role="form" data-toggle="validator"
           class="form-horizontal"
-          action="signUpConformation.jsp"
+          action="results.jsp"
           method="POST">
 
         <div class="form-group">

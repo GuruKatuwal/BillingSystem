@@ -4,6 +4,8 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+import static BillingSystem.entity.User.dateTimeFormatter;
+
 
 /**
  * The type Billing.
@@ -19,7 +21,7 @@ public class Billing {
     private int id;
 
     @Column(name = "payment_date")
-    private LocalDate paymentDate;
+    private String paymentDate;
 
     @Column(name = "bill_amt")
     private Double billAmount;
@@ -31,7 +33,7 @@ public class Billing {
     private Double previousBalance;
 
     @Column(name = "readingDate")
-    private LocalDate readingDate;
+    private String readingDate;
 
     @Column(name = "presentreading")
     private Double presentreading;
@@ -53,7 +55,7 @@ public class Billing {
      *
      * @return the payment date
      */
-    public LocalDate getPaymentDate() {
+    public String getPaymentDate() {
         return paymentDate;
     }
 
@@ -62,7 +64,7 @@ public class Billing {
      *
      * @param paymentDate the payment date
      */
-    public void setPaymentDate(LocalDate paymentDate) {
+    public void setPaymentDate(String paymentDate) {
         this.paymentDate = paymentDate;
     }
 
@@ -125,7 +127,7 @@ public class Billing {
      *
      * @return the reading date
      */
-    public LocalDate getReadingDate() {
+    public String getReadingDate() {
         return readingDate;
     }
 
@@ -134,7 +136,7 @@ public class Billing {
      *
      * @param readingDate the reading date
      */
-    public void setReadingDate(LocalDate readingDate) {
+    public void setReadingDate(String readingDate) {
         this.readingDate = readingDate;
     }
 
@@ -192,19 +194,9 @@ public class Billing {
         this.user = user;
     }
 
-    /**
-     * Instantiates a new Billing.
-     *
-     * @param paymentDate     the payment date
-     * @param billAmount      the bill amount
-     * @param paidAmount      the paid amount
-     * @param previousBalance the previous balance
-     * @param readingDate     the reading date
-     * @param presentreading  the presentreading
-     * @param previousreading the previousreading
-     * @param user            the user
-     */
-    public Billing(LocalDate paymentDate, Double billAmount, Double paidAmount, Double previousBalance, LocalDate readingDate, Double presentreading, Double previousreading, User user) {
+
+
+    public Billing(String paymentDate, Double billAmount, Double paidAmount, Double previousBalance, String readingDate, Double presentreading, Double previousreading, User user) {
         this.paymentDate = paymentDate;
         this.billAmount = billAmount;
         this.paidAmount = paidAmount;

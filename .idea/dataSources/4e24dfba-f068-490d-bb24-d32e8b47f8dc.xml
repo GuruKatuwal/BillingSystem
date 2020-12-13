@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="Billing@localhost">
+<dataSource name="BillingSystem@localhost">
   <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.15">
     <root id="1">
       <ServerVersion>8.0.16</ServerVersion>
@@ -8,11 +8,11 @@
       <DefaultCasing>exact</DefaultCasing>
     </root>
     <schema id="2" parent="1" name="Billing">
-      <Current>1</Current>
-      <Visible>1</Visible>
       <Collation>utf8mb4_0900_ai_ci</Collation>
     </schema>
     <schema id="3" parent="1" name="BillingSystem">
+      <Current>1</Current>
+      <Visible>1</Visible>
       <Collation>utf8mb4_0900_ai_ci</Collation>
     </schema>
     <schema id="4" parent="1" name="BookSeller">
@@ -1117,9 +1117,9 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="281" parent="2" name="billing"/>
-    <table id="282" parent="2" name="role"/>
-    <table id="283" parent="2" name="user">
+    <table id="281" parent="3" name="billing"/>
+    <table id="282" parent="3" name="role"/>
+    <table id="283" parent="3" name="user">
       <Collation>latin1_swedish_ci</Collation>
     </table>
     <column id="284" parent="281" name="id">
@@ -1191,7 +1191,7 @@
     </key>
     <foreign-key id="297" parent="281" name="billing_user_id_fk">
       <ColNames>user_id</ColNames>
-      <RefSchemaName>Billing</RefSchemaName>
+      <RefSchemaName>BillingSystem</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
@@ -1241,7 +1241,7 @@
     </key>
     <foreign-key id="306" parent="282" name="role_user_id_fk">
       <ColNames>user_id</ColNames>
-      <RefSchemaName>Billing</RefSchemaName>
+      <RefSchemaName>BillingSystem</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
