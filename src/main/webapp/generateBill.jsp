@@ -323,7 +323,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-<c:forEach var="billings" items="${billings}">
+                                                <c:forEach var="billings" items="${billings}">
                                                     <table class="invoice-items" cellpadding="0" cellspacing="0">
                                                         <tbody><tr>
                                                             <td>Consumed Unit</td>
@@ -339,17 +339,17 @@
                                                         </tr>
                                                         <tr>
                                                             <td>Service tax</td>
-                                                            <td class="alignright">$ 6.00</td>
+                                                            <td class="alignright">${billings.getTax}</td>
                                                         </tr>
                                                         <tr class="total">
                                                             <td class="alignright" width="80%">Total</td>
-                                                            <td class="alignright">$ 36.00</td>
+                                                            <td class="alignright">${billings.getTotal}</td>
                                                         </tr>
                                                     </tbody></table>
                                                 </td>
                                             </tr>
                                         </tbody></table>
-    </c:forEach>
+                                             </c:forEach>
                                     </td>
                                 </tr>
                                 <tr>

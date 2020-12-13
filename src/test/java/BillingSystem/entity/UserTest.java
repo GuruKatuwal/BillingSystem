@@ -32,4 +32,34 @@ class UserTest {
         // compare the two, pass or fail
         assertEquals(expectedAge, actualAge);
     }
+
+    @Test
+    void getTotal() {
+        // create the object that has the method I want to test
+        Billing billing = new Billing();
+
+        // create variable for the expected value
+        double expectedTotal = 552.75;
+
+        // call the method, and get the actual value
+        double actualTotal = billing.getTotal(500.00,50.00);
+
+        // compare the two, pass or fail
+        assertEquals(expectedTotal, actualTotal);
+    }
+
+    @Test
+    void getTax() {
+        // create the object that has the method I want to test
+        Billing billing = new Billing();
+
+        // create variable for the expected value
+        double expectedTax = 27.5;
+
+        // call the method, and get the actual value
+        double actualTax = billing.getTax(500.00);
+
+        // compare the two, pass or fail
+        assertEquals(expectedTax, actualTax);
+    }
 }
