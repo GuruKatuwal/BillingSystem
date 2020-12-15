@@ -25,7 +25,7 @@ public class AddUser extends HttpServlet {
 
             GenericDao genericDao = new GenericDao();
 
-            User newUser = new User(req.getParameter("name"),req.getParameter("username"),req.getParameter("password"),req.getParameter("address"),req.getParameter("city"),req.getParameter("state"),req.getParameter("zipcode"),req.getParameter("phone"),req.getParameter("description"),req.getParameter("dateOfBirth"));
+            User newUser = new User(req.getParameter("name"),req.getParameter("username"),req.getParameter("password"),req.getParameter("address"),req.getParameter("city"),req.getParameter("state"),req.getParameter("zipcode"),req.getParameter("phone"),req.getParameter("description"));
             Role role = new Role(req.getParameter("username"),"user",newUser);
 
             newUser.addRole(role);

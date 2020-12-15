@@ -20,3 +20,7 @@ Date | Task | Hours | Notes
 11/10| working on more jsp |30hrs 
 
 11/20 |Try to apply profile and lombok| 15 hrs
+
+11/30| Working on controller|20hrs
+
+12/10| Controller and jsps, Authentication, Aws | 30hrs

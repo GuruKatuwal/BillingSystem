@@ -55,9 +55,9 @@
             <div class="help-block with-errors"></div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2" for="postalCode">Zip Code</label>
+            <label class="control-label col-sm-2" for="zipcode">Zip Code</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="postalCode"
+                <input type="text" class="form-control" id="zipcode"
                        value="${user.zipcode}"
                        data-error="Please enter the postal code." required>
             </div>
@@ -83,25 +83,16 @@
             <div class="help-block with-errors"></div>
         </div>
 
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="dateofbirth">Date Of Birth</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" id="dateofbirth"
-                       value="${user.dateOfBirth}"
-                       data-error="Please enter your Date Of Birth." required>
-            </div>
-            <div class="help-block with-errors"></div>
-        </div>
+
 
 
         <button type="submit" class="btn btn-default col-sm-offset-3" name="submit" value="Update"
                 data-disable="true">Update
         </button>
         <button type="reset" class="btn btn-default">Clear</button>
-
+        <a href ="searchUser?searchTerm=&submit=viewAll"><button type="button" class="btn btn-default">Cancel</button></a>
     </form>
-    <p> This id : ${user.id}</p>
-</div>
+ </div>
 </body>
 
 </html>

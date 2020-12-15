@@ -46,8 +46,8 @@ public class User {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "date_of_birth")
-    private LocalDate dateOfBirth;
+//    @Column(name = "date_of_birth")
+//    private LocalDate dateOfBirth;
 
 
 
@@ -69,7 +69,7 @@ public class User {
     /**
      * The constant dateTimeFormatter.
      */
-    public static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+//    public static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
     /**
      * Gets name.
@@ -235,24 +235,24 @@ public class User {
         this.description = description;
     }
 
-    /**
-     * Gets date of birth.
-     *
-     * @return the date of birth
-     */
-    public String getDateOfBirth() {
-        return String.valueOf(dateOfBirth);
-    }
-
-    /**
-     * Sets date of birth.
-     *
-     * @param dateOfBirth the date of birth
-     */
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
+//    /**
+//     * Gets date of birth.
+//     *
+//     * @return the date of birth
+//     */
+//    public String getDateOfBirth() {
+//        return String.valueOf(dateOfBirth);
+//    }
+//
+//    /**
+//     * Sets date of birth.
+//     *
+//     * @param dateOfBirth the date of birth
+//     */
+//    public void setDateOfBirth(LocalDate dateOfBirth) {
+//        this.dateOfBirth = dateOfBirth;
+//    }
+//
 
     /**
      * Gets zipcode.
@@ -313,10 +313,10 @@ public class User {
      *
      * @return the age
      */
-    public int getAge() {
-
-        return (int)ChronoUnit.YEARS.between(dateOfBirth, LocalDate.now());
-    }
+//    public int getAge() {
+//
+//        return (int)ChronoUnit.YEARS.between(dateOfBirth, LocalDate.now());
+//    }
 
     /**
      * Add Billing.
@@ -377,9 +377,9 @@ public class User {
      * @param zipcode     the zipcode
      * @param phone       the phone
      * @param description the description
-     * @param dateOfBirth the date of birth
+//     * @param dateOfBirth the date of birth
      */
-    public User(int id,String name, String username, String password, String address, String city, String state, String zipcode, String phone, String description, String dateOfBirth) {
+    public User(Integer id,String name, String username, String password, String address, String city, String state, String zipcode, String phone, String description) {
         this.id = id;
         this.name = name;
         this.username = username;
@@ -390,7 +390,7 @@ public class User {
         this.zipcode = zipcode;
         this.phone = phone;
         this.description = description;
-        this.dateOfBirth = LocalDate.parse(dateOfBirth, dateTimeFormatter);
+//        this.dateOfBirth = LocalDate.parse(dateOfBirth, dateTimeFormatter);
 
     }
 
@@ -406,9 +406,9 @@ public class User {
      * @param zipcode     the zipcode
      * @param phone       the phone
      * @param description the description
-     * @param dateOfBirth the date of birth
+//     * @param dateOfBirth the date of birth
      */
-    public User(String name, String username, String password, String address, String city, String state, String zipcode, String phone, String description, String dateOfBirth) {
+    public User(String name, String username, String password, String address, String city, String state, String zipcode, String phone, String description) {
         this.name = name;
         this.username = username;
         this.password = password;
@@ -418,7 +418,7 @@ public class User {
         this.zipcode = zipcode;
         this.phone = phone;
         this.description = description;
-        this.dateOfBirth = LocalDate.parse(dateOfBirth, dateTimeFormatter);
+//        this.dateOfBirth = LocalDate.parse(dateOfBirth, dateTimeFormatter);
     }
 
     @Override
@@ -433,7 +433,6 @@ public class User {
                 ", zipcode='" + zipcode + '\'' +
                 ", phone='" + phone + '\'' +
                 ", description='" + description + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
                 ", id=" + id +
                 ", billings=" + billings +
                 ", roles=" + roles +

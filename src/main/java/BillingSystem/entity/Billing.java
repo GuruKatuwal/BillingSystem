@@ -4,7 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-import static BillingSystem.entity.User.dateTimeFormatter;
+//import static BillingSystem.entity.User.dateTimeFormatter;
 
 
 /**
@@ -42,6 +42,9 @@ public class Billing {
     private Double previousreading;
 
     @ManyToOne
+    @JoinColumn(name = "user_id",
+            foreignKey = @ForeignKey(name = "billing_user_id_fk")
+    )
     private User user;
 
     /**

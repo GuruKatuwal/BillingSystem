@@ -1307,22 +1307,17 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="317" parent="283" name="date_of_birth">
-      <Position>11</Position>
-      <DataType>date|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="318" parent="283" name="user_id_uindex">
+    <index id="317" parent="283" name="user_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="319" parent="283" name="PRIMARY">
+    <key id="318" parent="283" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="320" parent="283" name="user_id_uindex">
+    <key id="319" parent="283" name="user_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>user_id_uindex</UnderlyingIndexName>
     </key>

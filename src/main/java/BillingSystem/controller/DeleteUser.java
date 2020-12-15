@@ -2,7 +2,6 @@ package BillingSystem.controller;
 
 import BillingSystem.entity.User;
 import BillingSystem.persistence.GenericDao;
-import BillingSystem.persistence.UserData;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

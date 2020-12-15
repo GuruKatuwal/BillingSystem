@@ -29,8 +29,7 @@
                 <th>Zip code</th>
                 <th>Phone</th>
                 <th>Description</th>
-                <th>Age</th>
-<%--                <th>Bill Amount</th>--%>
+         <%--                <th>Bill Amount</th>--%>
                 <th>Action</th>
                 </thead>
                 <tbody>
@@ -45,8 +44,7 @@
                         <td>${user.zipcode}</td>
                         <td>${user.phone}</td>
                         <td>${user.description}</td>
-                        <td>${user.age}</td>
-<%--                        <td>${user.billing.billAmount}</td>--%>
+                     <%--                        <td>${user.billing.billAmount}</td>--%>
         <%--                <c:forEach items="${users}" var="desireAction">--%>
 
         <%--                    <td><a class='add' title="Add" data-toggle="tooltip" href="editUser.jsp"><i class="material-icons" >&#xe146;</i></a>--%>

@@ -10,10 +10,10 @@
 <body role="document">
 <jsp:include page="/navbar.jsp" />
 <div class = "container">
-    <form id="signUp" role="form" data-toggle="validator"
+    <form role="form" data-toggle="validator"
           class="form-horizontal"
-          action="results.jsp"
-          method="POST">
+          action="signUpUser"
+          method="post">
 
         <div class="form-group">
             <label class="control-label col-sm-2" for="name">Name</label>
@@ -73,10 +73,10 @@
             <div class="help-block with-errors"></div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2" for="postalCode">Postal Code</label>
+            <label class="control-label col-sm-2" for="zipcode">Zip Code</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="postalCode"
-                       name="postalCode"
+                <input type="text" class="form-control" id="zipcode"
+                       name="zipcode"
                        data-error="Please enter the postal code." required>
             </div>
             <div class="help-block with-errors"></div>
@@ -96,21 +96,10 @@
             <div class="col-sm-4">
                 <input type="text" class="form-control" id="description"
                        name="description"
-                       data-error="Please enter trail description." required>
+                       data-error="Please enter description." required>
             </div>
             <div class="help-block with-errors"></div>
         </div>
-
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="dateofbirth">Date Of Birth</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" id="dateofbirth"
-                       name="dateofbirth"
-                       data-error="Please enter your Date Of Birth." required>
-            </div>
-            <div class="help-block with-errors"></div>
-        </div>
-
 
         <button type="submit" class="btn btn-default col-sm-offset-3"
                 data-disable="true">Submit

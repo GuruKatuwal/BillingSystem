@@ -82,17 +82,6 @@
             <div class="help-block with-errors"></div>
         </div>
 
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="dateofbirth">Date Of Birth</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" id="dateofbirth"
-                       name="dateofbirth"
-                       data-error="Please enter your Date Of Birth." required>
-            </div>
-            <div class="help-block with-errors"></div>
-        </div>
-
-
         <button type="submit" class="btn btn-default col-sm-offset-3"
                 data-disable="true">Submit
         </button>

@@ -13,7 +13,7 @@
 <div class = "container">
     <form id="editUser" role="form" data-toggle="validator"
           class="form-horizontal"
-          action="editUser"
+          action="calculateBill"
           method="POST">
 
         <div class="form-group">

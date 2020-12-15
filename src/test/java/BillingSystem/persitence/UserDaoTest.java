@@ -60,7 +60,7 @@ public class UserDaoTest {
     @Test
     void insertSuccessUser() {
 
-        User newUser = new User("Guru Katuwal","gkatuwal","Madison","123 Street st","Madison","WI","53711","6086925566","customer","01/01/1984");
+        User newUser = new User("Guru Katuwal","gkatuwal","Madison","123 Street st","Madison","WI","53711","6086925566","customer");
         int id = genericDao.insert(newUser);
         assertNotEquals(0,id);
         User insertedUser = (User)genericDao.getById(id);
@@ -74,7 +74,7 @@ public class UserDaoTest {
      */
     @Test
     void insertWithBillingSuccess(){
-        User newUser = new User("Guru Katuwal","gkatuwal","Madison","456 Street st","Madison","WI","53711","6086925566","customer","01/01/1984");
+        User newUser = new User("Guru Katuwal","gkatuwal","Madison","456 Street st","Madison","WI","53711","6086925566","customer");
 
         Billing billing = new Billing("2020-10-10",140.00,40.00,200.00,"2020-10-10",90.00,75.00, newUser);
 
@@ -89,7 +89,7 @@ public class UserDaoTest {
     }
     @Test
     void insertWithRoleSuccess(){
-        User newUser = new User("Guru Katuwal","DParker","Parkersecret","789 madison st","Madison","WI","53711","6086925566","customer","01/01/1984");
+        User newUser = new User("Guru Katuwal","DParker","Parkersecret","789 madison st","Madison","WI","53711","6086925566","customer");
 
         Role role = new Role("Dparker","admin", newUser);
 
@@ -98,6 +98,7 @@ public class UserDaoTest {
         int id = genericDao.insert(newUser);
 
         assertNotEquals(0, id);
+
         User insertedUser = (User) genericDao.getById(id);
 
         assertEquals("Guru Katuwal", insertedUser.getName());
