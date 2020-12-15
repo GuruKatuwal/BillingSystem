@@ -35,6 +35,7 @@ public class WeatherDao {
         try {
 
             weather = mapper.readValue(response, WeatherObservation.class);
+
         } catch (JsonProcessingException e) {
             logger.error("Json not found");
         }

@@ -11,76 +11,91 @@
 
 <jsp:include page="/navbar.jsp" />
 <div class = "container">
-    <form id="editUser" role="form" data-toggle="validator"
+    <form  data-toggle="validator"
           class="form-horizontal"
-          action="editUser"
-          method="POST">
+          action="editUser" method="POST"
+         >
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="id">id</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="id" name="id"
+                       value="${user.id}"required>
+            </div>
+        </div>
 
         <div class="form-group">
             <label class="control-label col-sm-2" for="name">Name</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="name"
-                       value="${user.name}"
-                       data-error="Please enter the full name." required>
+                <input type="text" class="form-control" id="name" name="name"
+                       value="${user.name}"required>
             </div>
-            <div class="help-block with-errors"></div>
         </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="username"> User Name</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="username" name="username"
+                       value="${user.username}"required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="password">Password</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="password" name="password"
+                       value="${user.password}"required>
+            </div>
+        </div>
+
         <div class="form-group">
             <label class="control-label col-sm-2" for="address">Street
                 Address</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="address"
-                       value="${user.address}"
-                       data-error="Please enter the  street address."
-                       required>
+                <input type="text" class="form-control" id="address" name="address"
+                       value="${user.address}" required>
             </div>
-            <div class="help-block with-errors"></div>
+
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="city">City</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="city"
-                       value="${user.city}"
-                       data-error="Please enter the city." required>
+                <input type="text" class="form-control" id="city" name="city"
+                       value="${user.city}" required>
             </div>
-            <div class="help-block with-errors"></div>
         </div>
+
         <div class="form-group">
             <label class="control-label col-sm-2" for="state">State/Province</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="state"
-                       value="${user.state}"
-                       data-error="Please enter the state." required>
+                <input type="text" class="form-control" id="state" name="state"
+                       value="${user.state}"required>
             </div>
-            <div class="help-block with-errors"></div>
+
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="zipcode">Zip Code</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="zipcode"
-                       value="${user.zipcode}"
-                       data-error="Please enter the postal code." required>
+                <input type="text" class="form-control" id="zipcode" name="zipcode"
+                       value="${user.zipcode}"required>
             </div>
-            <div class="help-block with-errors"></div>
         </div>
+
         <div class="form-group">
             <label class="control-label col-sm-2" for="phone">Phone</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="phone"
-                       value="${user.phone}"
-                       data-error="Please enter the phone number." required>
+                <input type="text" class="form-control" id="phone" name="phone"
+                       value="${user.phone}" required>
             </div>
-            <div class="help-block with-errors"></div>
         </div>
+
         <div class="form-group">
             <label class="control-label col-sm-2" for="description">Description
             </label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="description"
-                       value="${user.description}"
-                       data-error="Please enter trail description." required>
+                <input type="text" class="form-control" id="description" name="description"
+                       value="${user.description}" required>
             </div>
-            <div class="help-block with-errors"></div>
+
         </div>
 
 
@@ -90,7 +105,7 @@
                 data-disable="true">Update
         </button>
         <button type="reset" class="btn btn-default">Clear</button>
-        <a href ="searchUser?searchTerm=&submit=viewAll"><button type="button" class="btn btn-default">Cancel</button></a>
+
     </form>
  </div>
 </body>

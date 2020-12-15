@@ -1274,7 +1274,6 @@
     <column id="311" parent="283" name="address">
       <Position>5</Position>
       <DataType>varchar(40)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="312" parent="283" name="city">
