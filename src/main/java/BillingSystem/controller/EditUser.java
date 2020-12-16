@@ -31,7 +31,6 @@ public class EditUser extends HttpServlet {
         String phone = req.getParameter("phone");
         String description = req.getParameter("description");
         int id = Integer.valueOf(req.getParameter("id"));
-//        int id = 1;
 
         GenericDao genericDao = new GenericDao(User.class);
         User userToUpdate = (User)genericDao.getById(id);
@@ -59,7 +58,6 @@ public class EditUser extends HttpServlet {
 
         GenericDao genericDao = new GenericDao(User.class);
         req.setAttribute("user", genericDao.getById(Integer.parseInt(req.getParameter("id"))));
-//        req.setAttribute("user", genericDao.getById(1));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/editUser.jsp");
         dispatcher.forward(req,resp);

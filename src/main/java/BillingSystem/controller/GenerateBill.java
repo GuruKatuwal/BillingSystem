@@ -2,6 +2,7 @@ package BillingSystem.controller;
 
 
 import BillingSystem.entity.Billing;
+import BillingSystem.entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import BillingSystem.persistence.GenericDao;
@@ -26,22 +27,13 @@ public class GenerateBill extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-//        GenericDao<Billing> genericDao = DaoFactory.createDao(Billing.class);
-//
-//        req.setAttribute("billings", genericDao.getAll());
-//
-//        RequestDispatcher dispatcher = req.getRequestDispatcher("/generateBill.jsp");
-//        dispatcher.forward(req, resp);
-//    }
-//
-//    @Override
-//    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        doGet(req, resp);
-        GenericDao<Billing> genericDao = DaoFactory.createDao(Billing.class);
-        List<Billing> billings = genericDao.getAll();
-        req.setAttribute("billings", billings);
+        GenericDao genericDao = new GenericDao(Billing.class);
+        List<Billing> billing = genericDao.getAll();
+        req.setAttribute("billing", billing);
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("/generateBill.jsp");
-        dispatcher.forward(req, resp);
+        dispatcher.forward(req,resp);
 
     }
+
 }

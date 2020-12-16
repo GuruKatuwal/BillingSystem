@@ -38,7 +38,7 @@ public class BillingDaoTest {
     @Test
     void getAllSuccess() {
         List<Billing> Billing = genericDao.getAll();
-        assertEquals(4, Billing.size());
+        assertEquals(6, Billing.size());
     }
 
     /**
@@ -48,7 +48,7 @@ public class BillingDaoTest {
     void getByIdSuccess()
     {
         Billing retriedBilling = (Billing)genericDao.getById(1);
-        assertEquals("2020-10-22", retriedBilling.getPaymentDate());
+        assertEquals(Double.valueOf(140.0), retriedBilling.getBillAmount());
     }
 
 
@@ -59,14 +59,14 @@ public class BillingDaoTest {
     void insertSuccessWithUser() {
         genericDao = new GenericDao(User.class);
         User user = (User)genericDao.getById(1);
-        Billing newBilling = new Billing("2020-11-01",140.00,40.00,200.00,"2020-10-10",90.00,75.00, user);
+        Billing newBilling = new Billing(140.00,40.00,200.00, user);
         user.addBilling(newBilling);
         int id = genericDao.insert(newBilling);
 
         assertNotEquals(0,id);
         assertEquals("Joe Coyne", newBilling.getUser().getName());
         assertNotNull(newBilling.getUser().getName());
-        assertEquals("2020-11-01", newBilling.getPaymentDate());
+        assertEquals(Double.valueOf(140.0), newBilling.getBillAmount());
 
     }
 
@@ -75,12 +75,12 @@ public class BillingDaoTest {
      */
     @Test
     void updateSuccess() {
-        Double paymentUpdate = 50.0;
+        Double previousBalance = 50.0;
         Billing BillingToUpdate = (Billing) genericDao.getById(1);
-        BillingToUpdate.setPaidAmount(paymentUpdate);
+        BillingToUpdate.setPreviousBalance(previousBalance);
         genericDao.saveOrUpdate(BillingToUpdate);
         Billing BillingAfterUpdate = (Billing)genericDao.getById(1);
-        assertEquals(paymentUpdate, BillingAfterUpdate.getPaidAmount());
+        assertEquals(previousBalance, BillingAfterUpdate.getPreviousBalance());
     }
 
 

@@ -1,3 +1,4 @@
+<jsp:useBean id="user" scope="request" type="BillingSystem.entity.Billing"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -11,29 +12,33 @@
 
 <jsp:include page="/navbar.jsp" />
 <div class = "container">
-    <form id="editUser" role="form" data-toggle="validator"
+    <form id="calculateBill" role="form" data-toggle="validator"
           class="form-horizontal"
           action="calculateBill"
           method="POST">
 
         <div class="form-group">
-            <label class="control-label col-sm-2" for="name">Name</label>
+            <label class="control-label col-sm-2" for="BillAmount">Name</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="name"
-                       value="${user.name}"
-                       data-error="Please enter the full name." required>
+                <input type="text" class="form-control" id="BillAmount" name="BillAmount"
+                       value="${user.billAmount}" required>
             </div>
-            <div class="help-block with-errors"></div>
         </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="prevoiusBalance"> Previous Balance</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="prevoiusBalance" name="prevoiusBalance"
+                       value="${user.previousBalance}" required>
+            </div>
+        </div>
+
         <div class="form-group">
             <label class="control-label col-sm-2" for="presentReading">Present Meter Reading</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="presentReading"
-                       value="presentReading"
-                       data-error="Please enter the  Present meter Reading Number."
-                       required>
+                <input type="text" class="form-control" id="presentReading" name="presentReading"
+                       value="${user.previousBalance}"placeholder="presentReading" required>
             </div>
-            <div class="help-block with-errors"></div>
         </div>
 
 

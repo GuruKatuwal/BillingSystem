@@ -6,6 +6,7 @@
             <a href="awsSearch.jsp"><i class="awsSearch.jsp"></i> Search</a>
             <a href="searchUser?searchTerm=&submit=viewall" value="viewall"></i> Contact</a>
             <a href="login.jsp"><i class=""></i> Login</a>
+            <a href="signUp.jsp"><i class=""></i> Signup</a>
         </div>
 
     </div>

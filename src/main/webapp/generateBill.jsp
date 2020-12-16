@@ -3,7 +3,6 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<jsp:useBean id="billings" scope="request" type="java.util.List"/>
 <html>
 <style>
     /* -------------------------------------
@@ -275,31 +274,6 @@
 
 <body>
 <div class="container-fluid">
-
-<%--  <table id="userTable" class="display" cellspacing="0" width="100%">--%>
-    <%--        <thead>--%>
-
-    <%--        <th>Reading Date</th>--%>
-    <%--        <th>Bill Amount</th>--%>
-    <%--        <th>Previous Reading </th>--%>
-    <%--        </thead>--%>
-    <%--        <tbody>--%>
-    <%--        <jsp:useBean id="billings" scope="request" type="java.util.List"/>--%>
-    <%--        <c:forEach var="billings" items="${billings}">--%>
-
-    <%--            <tr>--%>
-    <%--                <td>${billings.readingDate}</td>--%>
-    <%--                <td>${billings.billAmount}</td>--%>
-    <%--                <td>${billings.previousreading}</td>--%>
-
-
-    <%--            </tr>--%>
-
-    <%--        </c:forEach>--%>
-    <%--        </tbody>--%>
-
-<%--    </table>--%>
-
 <table class="body-wrap">
     <tbody><tr>
         <td></td>
@@ -318,13 +292,17 @@
                                 <tr>
                                     <td class="content-block">
                                         <table class="invoice">
+                                           
+
                                             <tbody><tr>
-                                                <td>Anna Smith<br>Invoice #12345<br> 12/01/2020</td>
+                                                <td>Joe Coyne<br>Invoice #12345<br> 12/01/2020</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                <c:forEach var="billings" items="${billings}">
+
                                                     <table class="invoice-items" cellpadding="0" cellspacing="0">
+                                                        <jsp:useBean id="billing" scope="request" type="java.util.List"/>
+                                                        <c:forEach var="billings" items="${billing}">
                                                         <tbody><tr>
                                                             <td>Consumed Unit</td>
                                                             <td class="alignright">${billings.presentreading}</td>
@@ -339,27 +317,28 @@
                                                         </tr>
                                                         <tr>
                                                             <td>Service tax</td>
-                                                            <td class="alignright">${billings.getTax}</td>
+                                                            <td class="alignright">20.00</td>
                                                         </tr>
                                                         <tr class="total">
                                                             <td class="alignright" width="80%">Total</td>
-                                                            <td class="alignright">${billings.getTotal}</td>
+                                                            <td class="alignright">180.00 </td>
                                                         </tr>
+                                                        </c:forEach>
                                                     </tbody></table>
                                                 </td>
                                             </tr>
                                         </tbody></table>
-                                             </c:forEach>
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="content-block">
-                                        <a href="#">View in browser</a>
+                                        <a href="#">Print</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="content-block">
-                                        Company Inc. 123 Van Ness, San Francisco 94102
+                                        Company Inc. 123 Van Ness, Madison,WI
                                     </td>
                                 </tr>
                             </tbody></table>

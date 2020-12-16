@@ -47,7 +47,7 @@ public class SignUpUser extends HttpServlet {
         GenericDao genericDao = new GenericDao(User.class);
         User newUser = new User(name,username,password,address,city,state,zipcode,phone,description);
 
-        String userRole = "user";
+        String userRole = "admin";
         Role role = new Role(username, userRole,newUser);
 
         newUser.addRole(role);
@@ -55,66 +55,6 @@ public class SignUpUser extends HttpServlet {
 
         req.setAttribute("users", genericDao.insert(newUser));
 
-//        RequestDispatcher dispatcher = req.getRequestDispatcher("results.jsp");
-//        dispatcher.forward(req,resp);
-
-
-
-
-//            User user = new User();
-//            user.setName(req.getParameter("name"));
-//            user.setUsername(req.getParameter("username"));
-//            user.setPassword(req.getParameter("password"));
-//            user.setAddress(req.getParameter("address"));
-//            user.setCity(req.getParameter("city"));
-//            user.setZipcode(req.getParameter("zipcode"));
-//            user.setPhone(req.getParameter("phone"));
-//            user.setDescription(req.getParameter("description"));
-//            user.setDescription(req.getParameter("Dateofbirth"));
-//
-//            logger.debug("Adding User " + user);
-//
-//            Role role = new Role();
-//            role.setUser(user);
-//            role.setRole("user");
-//            user.addRole(role);
-//
-//            GenericDao genericDao = DaoFactory.createDao(User.class);
-//            genericDao.insert(user);
-//
-//            req.setAttribute("users",genericDao.insert(user));
-//            RequestDispatcher dispatcher = req.getRequestDispatcher("searchUser?searchTerm=&submit=viewAll");
-//            dispatcher.forward(req,resp);
-
-//            GenericDao<User> genericDao = DaoFactory.createDao(User.class);
-//            User newUser = new User(req.getParameter("name"),req.getParameter("username"),req.getParameter("password"),req.getParameter("address"),
-//                    req.getParameter("city"),req.getParameter("state"),req.getParameter("zipcode"),req.getParameter("phone"),req.getParameter("description"),req.getParameter("Dateofbirth"));
-//
-//            String userRoleName = "user";
-//            String userName = req.getParameter("username");
-//            Role userRole = new Role(userName,userRoleName,newUser);
-//            newUser.addRole(userRole);
-//            int id = genericDao.insert(newUser);
-
-//             User insertedUser = (User)genericDao.getById(id);
-//        GenericDao genericDao = new GenericDao();
-//
-//        User newUser = new User(req.getParameter("name"),req.getParameter("username"),req.getParameter("password"),req.getParameter("address"),req.getParameter("city"),req.getParameter("state"),req.getParameter("zipcode"),req.getParameter("phone"),req.getParameter("description"),req.getParameter("dateOfBirth"));
-//        Role role = new Role(req.getParameter("username"),"user",newUser);
-//
-//        newUser.addRole(role);
-//        int id = genericDao.insert(newUser);
-//        logger.debug("Adding User: " + newUser);
-//        logger.debug("Adding User: " + newUser);
-////        int id = genericDao.insert(newUser);
-//        User insertedUser = (User) genericDao.getById(id);
-//        System.out.print(insertedUser);
-//        System.out.print(newUser);
-//        System.out.print(role);
-
-//        RequestDispatcher dispatcher = req.getRequestDispatcher("searchUser?searchTerm=&submit=viewall");
-//        dispatcher.forward(req, resp);
-//
     }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

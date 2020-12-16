@@ -3,6 +3,7 @@ package BillingSystem.entity;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 //import static BillingSystem.entity.User.dateTimeFormatter;
 
@@ -20,26 +21,26 @@ public class Billing {
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
 
-    @Column(name = "payment_date")
-    private String paymentDate;
+//    @Column(name = "payment_date")
+//    private String paymentDate;
 
     @Column(name = "bill_amt")
     private Double billAmount;
 
-    @Column(name = "paid_amt")
-    private Double paidAmount;
+//    @Column(name = "paid_amt")
+//    private Double paidAmount;
 
     @Column(name = "previous_balance")
     private Double previousBalance;
 
-    @Column(name = "readingDate")
-    private String readingDate;
+//    @Column(name = "readingDate")
+//    private String readingDate;
 
     @Column(name = "presentreading")
     private Double presentreading;
 
-    @Column(name = "previousreading")
-    private Double previousreading;
+//    @Column(name = "previousreading")
+//    private Double previousreading;
 
     @ManyToOne
     @JoinColumn(name = "user_id",
@@ -53,23 +54,6 @@ public class Billing {
     public Billing() {
     }
 
-    /**
-     * Gets payment date.
-     *
-     * @return the payment date
-     */
-    public String getPaymentDate() {
-        return paymentDate;
-    }
-
-    /**
-     * Sets payment date.
-     *
-     * @param paymentDate the payment date
-     */
-    public void setPaymentDate(String paymentDate) {
-        this.paymentDate = paymentDate;
-    }
 
     /**
      * Gets bill amount.
@@ -93,19 +77,19 @@ public class Billing {
      * Gets paid amount.
      *
      * @return the paid amount
-     */
-    public Double getPaidAmount() {
-        return paidAmount;
-    }
-
-    /**
-     * Sets paid amount.
-     *
-     * @param paidAmount the paid amount
-     */
-    public void setPaidAmount(Double paidAmount) {
-        this.paidAmount = paidAmount;
-    }
+//     */
+//    public Double getPaidAmount() {
+//        return paidAmount;
+//    }
+//
+//    /**
+//     * Sets paid amount.
+//     *
+//     * @param paidAmount the paid amount
+//     */
+//    public void setPaidAmount(Double paidAmount) {
+//        this.paidAmount = paidAmount;
+//    }
 
     /**
      * Gets previous balance.
@@ -125,23 +109,23 @@ public class Billing {
         this.previousBalance = previousBalance;
     }
 
-    /**
-     * Gets reading date.
-     *
-     * @return the reading date
-     */
-    public String getReadingDate() {
-        return readingDate;
-    }
-
-    /**
-     * Sets reading date.
-     *
-     * @param readingDate the reading date
-     */
-    public void setReadingDate(String readingDate) {
-        this.readingDate = readingDate;
-    }
+//    /**
+//     * Gets reading date.
+//     *
+//     * @return the reading date
+//     */
+//    public String getReadingDate() {
+//        return readingDate;
+//    }
+//
+//    /**
+//     * Sets reading date.
+//     *
+//     * @param readingDate the reading date
+//     */
+//    public void setReadingDate(String readingDate) {
+//        this.readingDate = readingDate;
+//    }
 
     /**
      * Gets presentreading.
@@ -161,23 +145,23 @@ public class Billing {
         this.presentreading = presentreading;
     }
 
-    /**
-     * Gets previousreading.
-     *
-     * @return the previousreading
-     */
-    public Double getPreviousreading() {
-        return previousreading;
-    }
-
-    /**
-     * Sets previousreading.
-     *
-     * @param previousreading the previousreading
-     */
-    public void setPreviousreading(Double previousreading) {
-        this.previousreading = previousreading;
-    }
+//    /**
+//     * Gets previousreading.
+//     *
+//     * @return the previousreading
+//     */
+//    public Double getPreviousreading() {
+//        return previousreading;
+//    }
+//
+//    /**
+//     * Sets previousreading.
+//     *
+//     * @param previousreading the previousreading
+//     */
+//    public void setPreviousreading(Double previousreading) {
+//        this.previousreading = previousreading;
+//    }
 
     /**
      * Gets user.
@@ -223,23 +207,15 @@ public class Billing {
     /**
      * Instantiates a new Billing.
      *
-     * @param paymentDate     the payment date
      * @param billAmount      the bill amount
-     * @param paidAmount      the paid amount
      * @param previousBalance the previous balance
-     * @param readingDate     the reading date
      * @param presentreading  the presentreading
-     * @param previousreading the previousreading
      * @param user            the user
      */
-    public Billing(String paymentDate, Double billAmount, Double paidAmount, Double previousBalance, String readingDate, Double presentreading, Double previousreading, User user) {
-        this.paymentDate = paymentDate;
+    public Billing( Double billAmount,  Double previousBalance,  Double presentreading, User user) {
         this.billAmount = billAmount;
-        this.paidAmount = paidAmount;
         this.previousBalance = previousBalance;
-        this.readingDate = readingDate;
         this.presentreading = presentreading;
-        this.previousreading = previousreading;
         this.user = user;
     }
 
@@ -247,13 +223,9 @@ public class Billing {
     public String toString() {
         return "Billing{" +
                 "id=" + id +
-                ", paymentDate=" + paymentDate +
                 ", billAmount=" + billAmount +
-                ", paidAmount=" + paidAmount +
                 ", previousBalance=" + previousBalance +
-                ", readingDate=" + readingDate +
                 ", presentreading=" + presentreading +
-                ", previousreading=" + previousreading +
                 ", user=" + user +
                 '}';
     }

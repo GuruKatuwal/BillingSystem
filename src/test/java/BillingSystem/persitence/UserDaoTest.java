@@ -76,7 +76,7 @@ public class UserDaoTest {
     void insertWithBillingSuccess(){
         User newUser = new User("Guru Katuwal","gkatuwal","Madison","456 Street st","Madison","WI","53711","6086925566","customer");
 
-        Billing billing = new Billing("2020-10-10",140.00,40.00,200.00,"2020-10-10",90.00,75.00, newUser);
+        Billing billing = new Billing(140.00,40.00,200.00, newUser);
 
         newUser.addBilling(billing);
 

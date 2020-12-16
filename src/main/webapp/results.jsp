@@ -59,7 +59,7 @@
 <%--                                <a class='add' title="Add" data-toggle="tooltip" href="addUser.jsp"><i class="material-icons" style="font-size:12px;color:green">&#xe146;</i></a>--%>
                                 <a class="edit" title="Edit" data-toggle="tooltip" href="editUser?id=${user.id}"><i class="material-icons" style="font-size:12px;color:orange" >&#xE254;</i></a>
                                 <a class="delete" title="Delete" data-toggle="tooltip" href="deleteUser?id=${user.id}"><i class="material-icons" style="font-size:12px;color:red">&#xE872;</i></a>
-                                <a class='generate' title="Add" data-toggle="tooltip" href="calculateBill?id=${user.id}"><i class="material-icons" style="font-size:12px;color:green">	&#36;</i></a>
+                                <a class='generate' title="Add" data-toggle="tooltip" href="generateBill?id=${user.id}"><i class="material-icons" style="font-size:12px;color:green">	&#36;</i></a>
                             </td>
 
                     </tr>

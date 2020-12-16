@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.16, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: Billing
+-- Host: 127.0.0.1    Database: BillingSystem
 -- ------------------------------------------------------
 -- Server version	8.0.16
 
@@ -24,19 +24,15 @@ DROP TABLE IF EXISTS `billing`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `billing` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `payment_date` date NOT NULL,
   `bill_amt` double DEFAULT NULL,
-  `paid_amt` double DEFAULT NULL,
   `previous_balance` double DEFAULT NULL,
-  `readingDate` date DEFAULT NULL,
   `presentreading` double DEFAULT NULL,
-  `previousreading` double DEFAULT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `billing_id_uindex` (`id`),
   KEY `billing_user_id_fk` (`user_id`),
   CONSTRAINT `billing_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=441 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=451 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +41,7 @@ CREATE TABLE `billing` (
 
 LOCK TABLES `billing` WRITE;
 /*!40000 ALTER TABLE `billing` DISABLE KEYS */;
-INSERT INTO `billing` VALUES (440,'2020-10-10',140,40,200,'2020-10-10',90,75,806);
+INSERT INTO `billing` VALUES (445,140,20,100,1),(446,100,50,75,2),(447,200,150,50,3),(449,175,75,100,5),(450,500,100,200,6);
 /*!40000 ALTER TABLE `billing` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +61,7 @@ CREATE TABLE `role` (
   UNIQUE KEY `role_id_uindex` (`id`),
   KEY `role_user_id_fk` (`user_id`),
   CONSTRAINT `role_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=348 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=353 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,6 +70,7 @@ CREATE TABLE `role` (
 
 LOCK TABLES `role` WRITE;
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
+INSERT INTO `role` VALUES (1,'JCoyne','admin',1),(2,'FHanson','user',2),(3,'BCurry','admin',3),(5,'Dklein','admin',5),(6,'DTilman','admin',6),(349,'naktuwal','user',808),(350,'rdangol','user',809),(352,'kDurrant','admin',811);
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -95,10 +92,9 @@ CREATE TABLE `user` (
   `zip_code` varchar(40) NOT NULL,
   `phone` varchar(40) NOT NULL,
   `description` varchar(40) NOT NULL,
-  `date_of_birth` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id_uindex` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=807 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=812 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,7 +103,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Joe Coyne','JCoyne','SuperSecret1','123 Street st','Madison','WI','53711','6086252222','Employee','1963-01-01'),(2,'Fred Hanson','FHanson','SuperSecret2','123 Street st','Fitchberg','WI','53711','608625333','Employee','1973-01-01'),(3,'Barney Curry','BCurry','SuperSecret3','123 Street st','Madison','WI','53711','608625444','Employee','1983-01-01'),(4,'Karen Kmack','KKmack','SuperSecret4','123 Street st','Verona','WI','53711','608625111','Employee','1993-01-01'),(5,'Dianne Klein','Dklein','SuperSecret5','123 Street st','Madison','WI','53711','6086252662','Employee','1984-01-01'),(6,'Dawn Tilman','DTilman','SuperSecret6','123 Street st','Sun Prairie','WI','53711','6086257722','Employee','2001-01-01'),(806,'Guru Katuwal','gkatuwal','Madison','456 Street st','Madison','WI','53711','6086925566','customer','1984-01-01');
+INSERT INTO `user` VALUES (1,'Joe Coyne','JCoyne','SuperSecret1','123 Street st','Madison','WI','53711','6086252222','Employee'),(2,'Fred Hanson','FHanson','SuperSecret2','123 Street st','Fitchberg','WI','53711','608625333','Employee'),(3,'Barney Curry','BCurry','SuperSecret3','123 Street st','Madison','WI','53711','608625444','Employee'),(5,'Dianne Klein','Dklein','SuperSecret5','123 Street st','Madison','WI','53711','6086252662','Employee'),(6,'Dawn Tilman','DTilman','SuperSecret6','123 Street st','Sun Prairie','WI','53711','6086257722','Employee'),(806,'Guru Katuwal','gkatuwal','Madison','456 Street st','Madison','WI','53711','6086925566','customer'),(808,'Nirmala Katuwal ','nkatuwal','katuwal','666 kottke dr','Madison','WI','53719','6086925862','Customer'),(809,'Rabina Dangol','rdangol','password','555 st st','Madison','WI','53719','6086925862','Customer'),(811,'Kevin Durrant','kDurrant','kevin','987 madison st','mad','wi','56871','6086925862','Customer');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -120,4 +116,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-09 15:24:22
+-- Dump completed on 2020-12-16 12:15:00

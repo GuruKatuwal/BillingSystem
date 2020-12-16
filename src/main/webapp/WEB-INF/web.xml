@@ -19,6 +19,10 @@
           <web-resource-name>searching</web-resource-name>
           <url-pattern>/search.jsp</url-pattern>
           <url-pattern>/results.jsp</url-pattern>
+          <url-pattern>/generateBill.jsp</url-pattern>
+          <url-pattern>/admin.jsp</url-pattern>
+          <url-pattern>/editUser.jsp</url-pattern>
+          <url-pattern>/addUser.jsp</url-pattern>
         </web-resource-collection>
 
         <auth-constraint>

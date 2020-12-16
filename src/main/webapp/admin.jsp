@@ -1,14 +1,11 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="taglib.jsp"%>
+<%--<c:set var="title" value="Search Results"/>--%>
+<%@include file="head.jsp"%>
+<%@include file="maintitle.jsp"%>
 <html>
-<head>
-    <title>Admin</title>
-</head>
 <body>
-This is the admin page where fancy admin-only stuff happens.
-<ul>
-    <li><a href="results.jsp">Take me to the Display Page</a></li>
-    <li><a href="index.jsp">Take me Home</a></li>
-</ul>
+
 </body>
 </html>

@@ -13,11 +13,12 @@
     <body role="document">
         <jsp:include page="navbar.jsp"/>
         <div class="container theme-showcase" role="main">
-
+            <Strong> New Registration --Success</Strong> Add user
             <c:choose>
                 <c:when test="${errorMessage == null}">
                     <div class="alert alert-success" role="alert">
-                        <Strong> New Registration --Success</Strong> Add user
+                        <Strong> New Registration --Success</Strong>
+                        <a href="login.jsp"><i class=""></i> Login</a>
                     </div>
                 </c:when>
                 <c:otherwise>
